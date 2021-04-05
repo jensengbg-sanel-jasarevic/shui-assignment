@@ -36,7 +36,7 @@ router.put('/', async (req, res) => {
     }
 })
 
-// DELETE user subscription
+// DELETE subscription & stream
 router.delete('/:tag', async (req, res) => {
     const token = req.headers['authorization'].split(' ')[1];
     const selected_tag = req.params.tag
@@ -50,12 +50,11 @@ router.delete('/:tag', async (req, res) => {
         res.status(403).send(err)
         }
 
-        // Delete user ID from requested stream
         db.get('streams')
         .remove( {tag: selected_tag} )
         .write();
 
-        // Delete user ID from stream messages if containing only requested stream
+        // Delete user from stream messages, if message contains only the requested tag to be deleted
         db.get('messages')
         .each((stream) => { if (stream.length < 1 && stream.tags[0] == selected_tag) { delete stream.subscriber } })
         .write();
