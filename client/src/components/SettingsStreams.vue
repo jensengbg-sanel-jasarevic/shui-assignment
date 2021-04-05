@@ -38,7 +38,7 @@ ul {
   border-radius: 5%;
   padding: 0.3em;
   margin-right: 1em;
-
+  cursor: pointer;
 }
 .settings-exit {
   background: rgba(255, 255, 255, 0.2);

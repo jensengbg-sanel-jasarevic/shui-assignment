@@ -5,8 +5,9 @@
         <SettingsStreams v-for="(tag, index) in streams" :key="index" :tag="tag" />
 
         <form>
-            <input type="text" id="tag" name="tag" v-model="tag">   
-            <img src="@/assets/checkmark.svg" alt="checkmark" @click.prevent="newStream">
+            <input type="text" id="tag" name="tag" autocomplete="off" v-model="tag">   
+            <img class="checkmark" src="@/assets/checkmark.svg" alt="checkmark" @click.prevent="newStream">
+            
         </form>
 
         <a href="#" class="btn" @click="deleteUser">Shit, theyre on to me!</a>
@@ -69,6 +70,22 @@ export default {
 }
 h1 {
     color: white;
+}
+input {
+    padding: 18px;
+    border: 3px solid white;
+    border-radius: 3px;
+    background: #EF4343;
+    outline: none;
+    
+}
+input:focus {
+    color: white;
+}
+.checkmark {
+    background: white;
+    cursor: pointer;
+
 }
 .btn {
     display: inline-flex;

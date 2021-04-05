@@ -78,12 +78,12 @@ input {
   margin-left: 10%;
   margin-right: 10%;
   margin-top: 2%;
+  margin-bottom: 20%;
 }
 ::placeholder {
   color: white;
 }
 footer > img {
   width: 100%;
-  margin-bottom: -70%;
 }
 </style>

@@ -1,6 +1,7 @@
 <template>
   <div id="landing" @click="$router.push('/register')">
-    <img src="@/assets/slogo.svg" alt="SHUI logo">
+    <img id="shui-logo" src="@/assets/slogo.svg" alt="SHUI logo">
+    
     <h2>FLOW FREELY</h2>
 
     <footer>
@@ -17,14 +18,17 @@ export default {
 </script>
 
 <style scoped>
+#landing {
+  cursor: pointer;
+}
+#shui-logo {
+    margin-top: 20vh;
+}
 h2 {
   color: #00B2FF;
 }
-img {
-  cursor: pointer;
-}
 footer > img {
   width: 100%;
-  margin-bottom: -110%;
+  margin-top: 40%;
 }
 </style>

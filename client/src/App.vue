@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <SettingsIcon @click.native="goTo('/register')" /> 
+    <SettingsIcon /> 
     <Settings v-if="showSettings" />
     <router-view />
   </div>
@@ -23,14 +23,6 @@ export default {
   return this.$store.state.showSettings;
   }
   },
-
-  methods: {
-  goTo(route){
-  if(this.$route.path == '/' || this.$route.path == '/login'){
-  this.$router.push(route);
-  }
-  }
-  }
 
 }
 </script>
