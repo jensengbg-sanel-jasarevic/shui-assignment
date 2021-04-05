@@ -5,8 +5,8 @@
         <SettingsStreams v-for="(tag, index) in streams" :key="index" :tag="tag" />
 
         <form>
-        <input type="text" id="tag" name="tag" v-model="tag">   
-        <img src="@/assets/checkmark.svg" alt="checkmark" @click.prevent="newStream">
+            <input type="text" id="tag" name="tag" v-model="tag">   
+            <img src="@/assets/checkmark.svg" alt="checkmark" @click.prevent="newStream">
         </form>
 
         <a href="#" class="btn" @click="deleteUser">Shit, theyre on to me!</a>
