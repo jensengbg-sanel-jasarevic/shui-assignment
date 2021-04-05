@@ -31,4 +31,9 @@ export default {
 .flow {
   padding: 5%;
 }
+.write-logo {
+  position: fixed;
+  bottom: 1%;
+  right: 5%;
+}
 </style>

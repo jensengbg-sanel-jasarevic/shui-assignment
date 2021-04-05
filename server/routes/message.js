@@ -31,7 +31,7 @@ router.post('/', async (req, res) => {
             id: shortid.generate(),
             content: req.body.content, // Should be encrypted with user key
             tags: req.body.tag,
-            date: `${weekday[date.getDay()]}` + `${months[date.getMonth()]}` + `${hour}:` + `${minutes}`,
+            date: `${weekday[date.getDay()]}` + `${months[date.getMonth()]}` + `${hour}:${minutes}`,
             username: user.username,
             subscriber: CryptoJS.SHA3(user.uuid).toString() // User encrypted in database
         }   

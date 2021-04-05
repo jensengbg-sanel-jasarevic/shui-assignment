@@ -16,10 +16,9 @@ export default {
 </script>
 
 <style scoped>
-.flow-streams {
-  color: rgba(0, 178, 255, 0.8);
-}
 ul {
+  float: right;
   list-style: none;
+  color: rgba(0, 178, 255, 0.8);
 }
 </style> 

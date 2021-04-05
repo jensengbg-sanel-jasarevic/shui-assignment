@@ -78,7 +78,7 @@ input {
   margin-left: 10%;
   margin-right: 10%;
   margin-top: 2%;
-  margin-bottom: 20%;
+  margin-bottom: 30%;
 }
 ::placeholder {
   color: white;

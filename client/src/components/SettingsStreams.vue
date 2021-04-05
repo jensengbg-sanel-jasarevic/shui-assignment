@@ -28,22 +28,21 @@ export default {
 
 <style scoped>
 ul {
-  list-style-position: inside;
   list-style: none;
   color: white;
 }
 .settings-tags {
   float: left;
+  margin-right: 1em;
+  padding: 0.3em;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 5%;
-  padding: 0.3em;
-  margin-right: 1em;
   cursor: pointer;
 }
 .settings-exit {
   background: rgba(255, 255, 255, 0.2);
-  padding: 0.5em;
   margin-left: 1.1em;
   margin-bottom: -0.2em;
+  padding: 0.5em;
 }
 </style>

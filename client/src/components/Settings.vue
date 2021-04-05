@@ -64,16 +64,17 @@ export default {
     top: 0;
     left: 0;
     width: 100vw;
-    height: 70vh;
+    height: 75vh;
     background: #EF4343;
+    box-shadow: 0px 0px 0px 100vh rgba(0,0,0,0.69);
 }
 h1 {
     color: white;
 }
 form {
     display: inline-flex;
-    margin-top: 5%;
     min-width: 80%;
+    margin-top: 10%;
 }
 input {
     height: 4rem;
@@ -112,6 +113,6 @@ input:focus {
     min-width: 80%;
     margin-left: 10%;
     margin-right: 10%;
-    margin-top: 2%;
+    margin-top: 1%;
 }
 </style>
