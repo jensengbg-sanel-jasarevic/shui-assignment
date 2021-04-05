@@ -8,8 +8,8 @@ praktiskt användningsområde
 **Frågeställning:** Bygga en säker applikation där man kan prenumerera på
 olika ”streams” och få innehåll på ett säkert sätt.
 
-**Mål:** Bygga en säker applikation där man kan prenumerera på
-olika ”streams” och få innehåll på ett säkert sätt.
+**Mål:** En app enligt skiss
+https://www.figma.com/file/cUmgIVpLJzjaz2z0qHjQdO/shui?node-id=0%3A1
 
 ## Varför ska ni utföra detta arbete?
 Syftet: 
