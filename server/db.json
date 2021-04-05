@@ -1,49 +1,23 @@
 {
   "users": [
     {
-      "uuid": "jWoFi9fbcc",
-      "username": "1",
-      "password": "$2b$10$lR6LYLxyrQsbZJ6JIcbAIur86Zt1W6RkyWzZ5Bc6tUo84q5Ne5Te2",
-      "userkey": "U2FsdGVkX18u1agJ1j59F/uEVIrM5Oz0Nofsmv0aPmQ="
-    },
-    {
-      "uuid": "KkMP-u3ZDl",
-      "username": "123",
-      "password": "$2b$10$Exn6KWxqSIGDu6hX5v9xBec01UmPzeDxSr1FqBolT/YAgdbGCf6Km",
-      "userkey": "U2FsdGVkX19XkS4M1cWkHQuSnfP9jcwb9RryfddzRus="
-    },
-    {
-      "uuid": "VV3cZcsCOL",
-      "username": "777",
-      "password": "$2b$10$U6R8s9kuTsYjsM1W0GedCusye2R/RBzpKs7as4fgKy1yFDm6bQi8u",
-      "userkey": "U2FsdGVkX1/0U7AtFYYuUjANaNQCh/rlnqbf9aIEark="
-    },
-    {
-      "uuid": "RnB9jVrWR_",
-      "username": "88",
-      "password": "$2b$10$QNLHIAuDaOSnMcmtsHQZQe/bvW/tDzkXHBWMuTnwBsS6Pc6mlsg0q",
-      "userkey": "U2FsdGVkX19Bdn3iiDs7w8sX4g5DiunPflYZckfrfq4="
-    },
-    {
-      "uuid": "aLiBLc0evD",
-      "username": "99",
-      "password": "$2b$10$.E2Hfpsyon7L9rNXsmYDVODA7lPVCiTwWkGEwTH9LdAdaUPuThhtO",
-      "userkey": "U2FsdGVkX1922czMUGwxbbPmea0xr4Yr5NG0Xtn8hWs="
-    },
-    {
-      "uuid": "1BBqrmTtQk",
-      "username": "88",
-      "password": "$2b$10$.BAmVGm/2sT8/cMMSZQy8urQidUMIz5dgqsNWn/g14PcI6waCB0Ma",
-      "userkey": "U2FsdGVkX18ti3/hdG01WhRTOQa4nEteUSzYtiTlJuw="
+      "uuid": "5bLMNRze7g",
+      "username": "8",
+      "password": "$2b$10$dM2AHopTdUc335mvR1UBveBY2P1C1oTVqQ8FrmhRLKKO/1qrCZ1D6",
+      "userkey": "U2FsdGVkX18Mj8JbHFnrkPylriNApxe5RuHSNb5K/Jw="
     }
   ],
   "streams": [
     {
       "tag": "gothenburg",
-      "subscriber": "4a894240e47809458b0786b873930d722e9382c202481538715421beda627e6a90784f580c7937af461ce0f835589a994c365838eba6378b0f673cb816ce78f2"
+      "subscriber": "5a08e7487aff642128ffcf511a5cb2814bffd5f6bb924541b1e55a16d5272aef7bd84c9f194861a1cf00caf4ed9cf89e894a4fac140fe363cd2073e246da4895"
     },
     {
-      "tag": "boras"
+      "tag": "boras",
+      "subscriber": "5a08e7487aff642128ffcf511a5cb2814bffd5f6bb924541b1e55a16d5272aef7bd84c9f194861a1cf00caf4ed9cf89e894a4fac140fe363cd2073e246da4895"
+    },
+    {
+      "tag": "urgent"
     }
   ],
   "messages": [
@@ -56,7 +30,8 @@
         "urgent"
       ],
       "date": "måndag 3 Nov, 09:23",
-      "username": "Snodden"
+      "username": "Snodden",
+      "subscriber": "5a08e7487aff642128ffcf511a5cb2814bffd5f6bb924541b1e55a16d5272aef7bd84c9f194861a1cf00caf4ed9cf89e894a4fac140fe363cd2073e246da4895"
     },
     {
       "id": 2,
@@ -67,7 +42,8 @@
         "stockholm"
       ],
       "date": "måndag 3 Nov, 12:21",
-      "username": "Fagotten"
+      "username": "Fagotten",
+      "subscriber": "5a08e7487aff642128ffcf511a5cb2814bffd5f6bb924541b1e55a16d5272aef7bd84c9f194861a1cf00caf4ed9cf89e894a4fac140fe363cd2073e246da4895"
     },
     {
       "id": 3,
@@ -79,14 +55,16 @@
       "username": "Toffeln"
     },
     {
-      "id": "kE9bAvdy-",
-      "content": "hkjjhk",
+      "id": "KssYRaykT",
+      "content": "sdfsdfsd",
       "tags": [
-        "jjkh",
-        "kjkhkj"
+        "sd",
+        "fdsfds",
+        ""
       ],
-      "date": 1617629931100,
-      "username": "33"
+      "date": "måndag Apr, 20:10",
+      "username": "8",
+      "subscriber": "5a08e7487aff642128ffcf511a5cb2814bffd5f6bb924541b1e55a16d5272aef7bd84c9f194861a1cf00caf4ed9cf89e894a4fac140fe363cd2073e246da4895"
     }
   ]
 }

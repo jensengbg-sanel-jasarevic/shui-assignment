@@ -27,5 +27,8 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.flow {
+  padding: 5%;
+}
 </style>

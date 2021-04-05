@@ -5,10 +5,16 @@ const CryptoJS = require('crypto-js');
 const jwt = require('jsonwebtoken');
 const router = new Router();
 
+let date = new Date // Invoke constructors without parenthesis if no parameters are to be passed
+let months = ["Jan, ","Feb, ","Mar,","Apr, ","Maj, ","Jun, ","Jul, ","Aug, ","Sep, ","Okt, ","Nov, ","Dec, "];
+let weekday = ["söndag ", "måndag ", "tisdag ", "onsdag ", "torsdag ", "fredag ", "lördag "]
+let hour = date.getHours();
+let minutes = date.getMinutes();
+
 // POST user message
 router.post('/', async (req, res) => {
     const token = req.headers['authorization'].split(' ')[1];
-    
+
     // Check if user should be allowed to post      
     try {
         const verified_user = jwt.verify(token, process.env.JWT_KEY); 
@@ -25,7 +31,7 @@ router.post('/', async (req, res) => {
             id: shortid.generate(),
             content: req.body.content, // Should be encrypted with user key
             tags: req.body.tag,
-            date: Date.now(),
+            date: `${weekday[date.getDay()]}` + `${months[date.getMonth()]}` + `${hour}:` + `${minutes}`,
             username: user.username,
             subscriber: CryptoJS.SHA3(user.uuid).toString() // User encrypted in database
         }   

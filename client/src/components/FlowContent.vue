@@ -1,11 +1,11 @@
 <template>
-  <div class="displayflow">
+  <div class="flow-content">
     <article> 
       <p class="date">{{ flowMsg.date }}</p>
       <p class="content">{{ flowMsg.content }}</p>
-      <p class="username">{{ flowMsg.username }}</p>
+      <p class="username">━ {{ flowMsg.username }}</p>
     </article>
-   <FlowStreams v-for="(tag, index) in flowMsg.tags" :key="index" :tag="tag" />
+    <FlowStreams v-for="(tag, index) in flowMsg.tags" :key="index" :tag="tag" />
   </div>
 </template>
 
@@ -33,8 +33,8 @@ article {
 .date {
   font-size: 0.5em;
 }
-
 .username {
   font-weight: bold;
+  font-style: italic;
 }
 </style>

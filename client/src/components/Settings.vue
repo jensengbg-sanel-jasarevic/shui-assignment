@@ -5,9 +5,8 @@
         <SettingsStreams v-for="(tag, index) in streams" :key="index" :tag="tag" />
 
         <form>
-            <input type="text" id="tag" name="tag" autocomplete="off" v-model="tag">   
-            <img class="checkmark" src="@/assets/checkmark.svg" alt="checkmark" @click.prevent="newStream">
-            
+            <input type="text" id="tag" name="tag" autocomplete="off" v-model="tag">  
+            <img class="checkmark" src="@/assets/checkmark.svg" alt="checkmark" @click.prevent="newStream">  
         </form>
 
         <a href="#" class="btn" @click="deleteUser">Shit, theyre on to me!</a>
@@ -28,7 +27,7 @@ export default {
 
   data(){
   return {
-  tag: '',
+  tag: '#',
   }
   },
 
@@ -47,7 +46,7 @@ export default {
 
   methods: {
   newStream(){
-  this.$store.dispatch('newStream', { tag: this.tag } ) 
+  this.$store.dispatch('newStream', { tag: this.tag.replace("#", "") } ) 
   },      
   deleteUser(){
   this.$store.commit('toggle');
@@ -71,13 +70,25 @@ export default {
 h1 {
     color: white;
 }
+form {
+    display: inline-flex;
+    margin-top: 5%;
+    min-width: 80%;
+}
 input {
-    padding: 18px;
+    height: 4rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: white;
+    background: #19274A;
+    min-width: 80%;
+    padding: 2%;
     border: 3px solid white;
     border-radius: 3px;
     background: #EF4343;
     outline: none;
-    
 }
 input:focus {
     color: white;
@@ -85,7 +96,8 @@ input:focus {
 .checkmark {
     background: white;
     cursor: pointer;
-
+    padding: 10px;
+    border-radius: 3px;
 }
 .btn {
     display: inline-flex;

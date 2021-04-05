@@ -21,5 +21,7 @@ export default {
 </script>
 
 <style scoped>
-
+.settings-icon {
+  margin-right: 70%;
+}
 </style>
