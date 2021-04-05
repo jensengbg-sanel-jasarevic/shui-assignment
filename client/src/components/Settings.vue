@@ -1,7 +1,7 @@
 <template>
     <div id="settings" >
         <SettingsIcon />
-        <h1>streams</h1>
+            <h1>streams</h1>
         <SettingsStreams v-for="(tag, index) in streams" :key="index" :tag="tag" />
 
         <form>
