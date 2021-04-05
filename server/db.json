@@ -1,0 +1,56 @@
+{
+  "users": [
+    {
+      "uuid": "jWoFi9fbcc",
+      "username": "1",
+      "password": "$2b$10$lR6LYLxyrQsbZJ6JIcbAIur86Zt1W6RkyWzZ5Bc6tUo84q5Ne5Te2",
+      "userkey": "U2FsdGVkX18u1agJ1j59F/uEVIrM5Oz0Nofsmv0aPmQ="
+    }
+  ],
+  "streams": [
+    {
+      "tag": "gothenburg",
+      "subscriber": "4a894240e47809458b0786b873930d722e9382c202481538715421beda627e6a90784f580c7937af461ce0f835589a994c365838eba6378b0f673cb816ce78f2"
+    },
+    {
+      "tag": "boras"
+    },
+    {
+      "tag": "urgent"
+    }
+  ],
+  "messages": [
+    {
+      "id": 1,
+      "content": "Saker händer här och där. Elakingar på spårvagnarna vid Brunnsparken. Se till att vara på plats den tiden, var försiktiga.",
+      "tags": [
+        "gothenburg",
+        "malmo",
+        "urgent"
+      ],
+      "date": "måndag 3 Nov, 09:23",
+      "username": "Snodden",
+      "subscriber": "4a894240e47809458b0786b873930d722e9382c202481538715421beda627e6a90784f580c7937af461ce0f835589a994c365838eba6378b0f673cb816ce78f2"
+    },
+    {
+      "id": 2,
+      "content": "ICA Trumpenten har stängt, jag repeterar. ICA Trumpenten har spelat sitt susta tut! Var försiktiga där ute, detta håller på att balla ur!",
+      "tags": [
+        "boras",
+        "urgent",
+        "stockholm"
+      ],
+      "date": "måndag 3 Nov, 12:21",
+      "username": "Fagotten"
+    },
+    {
+      "id": 3,
+      "content": "Undvik Kungsträdgården, där är det massa elakingar. Ta istället den lila linjen ut mot Pluppeberg.",
+      "tags": [
+        "stockholm"
+      ],
+      "date": "tisdag 3 Nov, 13:37",
+      "username": "Toffeln"
+    }
+  ]
+}

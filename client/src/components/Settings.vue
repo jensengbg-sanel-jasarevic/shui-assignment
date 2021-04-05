@@ -1,0 +1,88 @@
+<template>
+    <div id="settings" >
+        <SettingsIcon />
+        <h1>streams</h1>
+        <SettingsStreams v-for="(tag, index) in streams" :key="index" :tag="tag" />
+
+        <form>
+        <input type="text" id="tag" name="tag" v-model="tag">   
+        <img src="@/assets/checkmark.svg" alt="checkmark" @click.prevent="newStream">
+        </form>
+
+        <a href="#" class="btn" @click="deleteUser">Shit, theyre on to me!</a>
+    </div>
+</template>
+
+<script>
+import SettingsIcon from '@/components/SettingsIcon'
+import SettingsStreams from '@/components/SettingsStreams'
+
+export default {
+  name: 'Settings',  
+
+  components: {
+  SettingsIcon,
+  SettingsStreams
+  },
+
+  data(){
+  return {
+  tag: '',
+  }
+  },
+
+  beforeMount(){
+  this.$store.dispatch('getStreams')
+  },
+
+  computed: {    
+  showSettings(){
+  return this.$store.state.showSettings;
+  },
+  streams() {
+  return this.$store.state.streams;
+  },
+  },
+
+  methods: {
+  newStream(){
+  this.$store.dispatch('newStream', { tag: this.tag } ) 
+  },      
+  deleteUser(){
+  this.$store.commit('toggle');
+  this.$store.dispatch('deleteUser') 
+  }
+  },
+  
+}
+</script>
+
+<style lang="scss" scoped>
+#settings {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 70vh;
+    background: #EF4343;
+}
+h1 {
+    color: white;
+}
+.btn {
+    display: inline-flex;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: white;
+    background: #19274A;
+    min-width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 2%;
+}
+</style>
