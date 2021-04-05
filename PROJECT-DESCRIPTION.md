@@ -1,4 +1,4 @@
-# INLÄMNINGSUPPGIFT: SHUI
+# Inlämningsuppgift: SHUI
 
 ## Bakgrundsbeskrivning, frågeställning, avgränsning och mål
 
