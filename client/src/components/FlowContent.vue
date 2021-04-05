@@ -26,10 +26,10 @@ export default {
 
 <style scoped>
 article {
-  margin-top: 5%;
-  padding: 1rem;
-  text-align: left;
   background-color: white;
+  margin-top: 11%;
+  padding: 2%;
+  text-align: left;
 }
 .date {
   font-size: 0.6em;

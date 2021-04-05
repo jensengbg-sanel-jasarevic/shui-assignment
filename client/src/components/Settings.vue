@@ -47,6 +47,7 @@ export default {
   methods: {
   newStream(){
   this.$store.dispatch('newStream', { tag: this.tag.replace("#", "") } ) 
+  this.tag = '#'
   },      
   deleteUser(){
   this.$store.commit('toggle');
@@ -74,7 +75,7 @@ h1 {
 form {
     display: inline-flex;
     min-width: 80%;
-    margin-top: 10%;
+    margin-top: 100px;
 }
 input {
     height: 4rem;
@@ -83,7 +84,6 @@ input {
     font-size: 1.4rem;
     text-decoration: none;
     color: white;
-    background: #19274A;
     min-width: 80%;
     padding: 2%;
     border: 3px solid white;
@@ -113,6 +113,6 @@ input:focus {
     min-width: 80%;
     margin-left: 10%;
     margin-right: 10%;
-    margin-top: 1%;
+    margin-top: 2%;
 }
 </style>

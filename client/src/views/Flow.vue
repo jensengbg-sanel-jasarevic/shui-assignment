@@ -1,7 +1,7 @@
 <template>
   <div class="flow">
     <FlowContent v-for="(flowMsg, index) in flowData" :key="index" :flowMsg="flowMsg" />
-    <img class="write-logo" src="@/assets/write.svg" alt="write" @click="$router.push('/writemsg')">   
+    <img class="write-icon" src="@/assets/write.svg" alt="write" @click="$router.push('/writemsg')">   
   </div>
 </template>
 
@@ -15,7 +15,7 @@ export default {
   },
 
   beforeMount(){
-  this.$store.dispatch('getFlow')
+  this.$store.dispatch('getFlow');
   },
 
   computed: {
@@ -31,7 +31,7 @@ export default {
 .flow {
   padding: 5%;
 }
-.write-logo {
+.write-icon {
   position: fixed;
   bottom: 1%;
   right: 5%;

@@ -36,8 +36,9 @@ router.post('/', async (req, res) => {
             subscriber: CryptoJS.SHA3(user.uuid).toString() // User encrypted in database
         }   
         
+        // Add msg to beginning of array
         db.get('messages')
-        .push(user_msg)
+        .unshift(user_msg)        
         .write()
 
         // HTTP 201 Created

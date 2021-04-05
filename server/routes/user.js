@@ -67,7 +67,8 @@ router.delete('/', async (req, res) => {
        
         // HTTP 200 OK
         res.sendStatus(200)
-    } catch(err) {
+    } 
+    catch(err) {
         // HTTP 403 Forbidden
         res.status(403).send(err)
     }

@@ -22,7 +22,8 @@ router.get('/', async (req, res) => {
 
         // HTTP 200 OK, send results
         res.status(200).send(users_flow);    
-        } catch(err) {
+        } 
+        catch(err) {
         // HTTP 403 Forbidden
         res.status(403).send(err)
     }    

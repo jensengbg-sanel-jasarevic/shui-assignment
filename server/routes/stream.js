@@ -12,23 +12,25 @@ router.get('/', async (req, res) => {
     try {
     jwt.verify(token, process.env.JWT_KEY);
     
-    } catch(err) {
-    // HTTP 403 Forbidden
-    res.status(403).send(err)
-    }
-    
     // Create new array that contains only tag values
     let tags = db.get('streams')
     .map('tag')
     .value();
-
+    
     if (tags === undefined || tags.length == 0) {
-    // HTTP 404 Not Found
-    res.sendStatus(404);    
-    } else {
-    // HTTP 200 OK
-    res.status(200).send(tags);    
+        // HTTP 404 Not Found
+        res.sendStatus(404);    
+        } 
+        else {
+        // HTTP 200 OK
+        res.status(200).send(tags);    
     };
+    
+    } 
+    catch(err) {
+    // HTTP 403 Forbidden
+    res.status(403).send(err)
+    }
 });
 
 // POST stream
@@ -55,10 +57,11 @@ router.post('/', async (req, res) => {
         .write()
 
         // HTTP 201 Created
-        res.sendStatus(201)
-    } catch(err) {
-        // HTTP 403 Forbidden
-        res.status(403).send(err)
+        res.sendStatus(201);
+    } 
+    catch(err) {
+    // HTTP 403 Forbidden
+    res.status(403).send(err);
     }
 })
 

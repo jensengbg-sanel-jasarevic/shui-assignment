@@ -30,13 +30,14 @@ router.put('/', async (req, res) => {
 
         // HTTP 200 OK, request succeeded
         res.sendStatus(200)
-    } catch(err) {
-        // HTTP 403 Forbidden
-        res.status(403).send(err)
+    } 
+    catch(err) {
+    // HTTP 403 Forbidden
+    res.status(403).send(err)
     }
 })
 
-// DELETE subscription & stream
+// DELETE user subscription & stream
 router.delete('/:tag', async (req, res) => {
     const token = req.headers['authorization'].split(' ')[1];
     const selected_tag = req.params.tag
@@ -44,11 +45,6 @@ router.delete('/:tag', async (req, res) => {
     // Verification
     try {
         jwt.verify(token, process.env.JWT_KEY);
-        
-        } catch(err) {
-        // HTTP 403 Forbidden
-        res.status(403).send(err)
-        }
 
         db.get('streams')
         .remove( {tag: selected_tag} )
@@ -61,5 +57,10 @@ router.delete('/:tag', async (req, res) => {
 
         // HTTP 200 OK, request succeeded
         res.sendStatus(200)
+        } 
+        catch(err) {
+        // HTTP 403 Forbidden
+        res.status(403).send(err)
+        }
 })
 module.exports = router;
