@@ -1,7 +1,7 @@
 <template>
-  <div class="removed" @click="$router.push('/')">
-  <h1>deleted user</h1>
-    <footer>
+  <div class="deleted" @click="$router.push('/')">
+    <h1> {{ deletedUserMsg }} </h1>
+    <footer class="deleted-footer">
       <img src="@/assets/footer.svg">
     </footer>
   </div>
@@ -11,18 +11,25 @@
 export default {
   name: 'Deleted',
 
+  computed: {
+  deletedUserMsg() {
+  return this.$store.state.deletedUserMsg;
+  },
+  },
+
 }
 </script>
 
 <style lang="scss" scoped>
 h1 {
+  margin-top: 20vh;
   color: white;
 }
-.removed {
+.deleted {
   cursor: pointer;
 }
-footer > img {
+.deleted-footer > img {
+  margin-top: 60%;
   width: 100%;
-  margin-bottom: -130%;
 }
 </style>

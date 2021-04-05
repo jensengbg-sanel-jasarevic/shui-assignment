@@ -58,8 +58,7 @@ export default new Vuex.Store({
       });
       sessionStorage.setItem('loggedInToken', resp.data.token);
       sessionStorage.setItem('loggedInUserKey', resp.data.userkey);
-      //??
-      ctx.dispatch('getFlow')
+ 
       router.push('/flow')
     },
 

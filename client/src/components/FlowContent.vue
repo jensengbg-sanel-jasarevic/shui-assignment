@@ -5,7 +5,7 @@
       <p class="content">{{ flowMsg.content }}</p>
       <p class="username">{{ flowMsg.username }}</p>
     </article>
-   <FlowStreams v-for="(item, index) in flowMsg.tags" :key="index" :tag="tag" />
+   <FlowStreams v-for="(tag, index) in flowMsg.tags" :key="index" :tag="tag" />
   </div>
 </template>
 
