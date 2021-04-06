@@ -24,5 +24,5 @@ App.use('/subscription', subscription);
 App.use('/message', message);
 
 App.listen(1992, () => {
-    console.log('Super secure server is up n running on PORT 1992!')
+    console.log('Server running on PORT 1992')
 })

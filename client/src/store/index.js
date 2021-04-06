@@ -35,17 +35,18 @@ export default new Vuex.Store({
     async newUser(ctx, newUser){
       let resp = await axios.post(`${API}/user`, newUser, {
       });            
-      console.log(resp) // Error handle
+      console.log(resp) 
       router.push('/login')
     },
 
     async deleteUser({ commit }) {
       let resp = await axios.delete(`${API}/user`, {
         headers: {
-          'authorization': `Bearer ${sessionStorage.getItem('loggedInToken')}`
+          'authorization': `Bearer ${sessionStorage.getItem('token')}`
         }
       });
-      console.log(resp) // Error handle
+      console.log(resp) 
+
       commit('deletedUser')
       router.push('/deleted')
     },    
@@ -55,9 +56,8 @@ export default new Vuex.Store({
         username: cred.username,
         password: cred.password
       });
-      sessionStorage.setItem('loggedInToken', resp.data.token);
-      sessionStorage.setItem('loggedInUserKey', resp.data.userkey);
-      sessionStorage.setItem('secretKey', resp.data.secretkey);
+      sessionStorage.setItem('token', resp.data.token);
+      sessionStorage.setItem('userkey', resp.data.userkey);
 
       router.push('/flow')
     },
@@ -65,33 +65,31 @@ export default new Vuex.Store({
     async getFlow({ commit }){
       let resp = await axios.get(`${API}/flow`, {
         headers: {
-          'authorization': `Bearer ${sessionStorage.getItem('loggedInToken')}`
+          'authorization': `Bearer ${sessionStorage.getItem('token')}`
         } 
       });
+      console.log(resp) 
 
-    const DECRYPTED_SECRET_KEY = CryptoJS.AES.decrypt(sessionStorage.getItem('secretKey'), sessionStorage.getItem('loggedInUserKey')).toString(CryptoJS.enc.Utf8)
-
-    const flow = resp.data.map((message) => {
+      const flow = resp.data.map((message) => {
         return {
           date: message.date,
           username: message.username,
           tags: message.tags,
-          content: CryptoJS.AES.decrypt(message.text, DECRYPTED_SECRET_KEY).toString(CryptoJS.enc.Utf8)
+          content: CryptoJS.AES.decrypt(message.text, sessionStorage.getItem('userkey')).toString(CryptoJS.enc.Utf8)
         };
       });
-
-      console.log("resp data get flow", resp.data) 
-      console.log(resp) // Error handle
+         
       commit('setPlainFlow', flow)
     },
 
     async getStreams({ commit }){
       let resp = await axios.get(`${API}/stream`, {
         headers: {
-          'authorization': `Bearer ${sessionStorage.getItem('loggedInToken')}`
+          'authorization': `Bearer ${sessionStorage.getItem('token')}`
         } 
       });
-      console.log(resp) // Error handle
+      console.log(resp) 
+
       commit('setStreams', resp.data)
     },
 
@@ -100,37 +98,38 @@ export default new Vuex.Store({
     async subscribe(ctx, subscribeStream) {
       let resp = await axios.put(`${API}/subscription`, { tag: subscribeStream }, {
         headers: {
-          'authorization': `Bearer ${sessionStorage.getItem('loggedInToken')}`
+          'authorization': `Bearer ${sessionStorage.getItem('token')}`
         }
       });
-      console.log(resp) // Error handler
+      console.log(resp) 
     },  
 
     async unsubscribe(ctx, unsubscribeStream) {
       let resp = await axios.delete(`${API}/subscription/${unsubscribeStream}`, {
         headers: {
-          'authorization': `Bearer ${sessionStorage.getItem('loggedInToken')}`
+          'authorization': `Bearer ${sessionStorage.getItem('token')}`
         }
       });
-      console.log(resp) // Error handle
+      console.log(resp) 
     },
 
     async newStream(ctx, newTag){
       let resp = await axios.post(`${API}/stream`, newTag, {
        headers: {
-          'authorization': `Bearer ${sessionStorage.getItem('loggedInToken')}` 
+          'authorization': `Bearer ${sessionStorage.getItem('token')}` 
         }
       });
-      console.log(resp) // Error handle
+      console.log(resp)
     },
            
     async newMsg(ctx, userMsg){
       let resp = await axios.post(`${API}/message`, userMsg, {
        headers: {
-          'authorization': `Bearer ${sessionStorage.getItem('loggedInToken')}` // User that request to make post (token contains user UUID)
+          'authorization': `Bearer ${sessionStorage.getItem('token')}` // User that request to make post (token contains user UUID)
         }
       });
       console.log(resp) // Error handle
+
       router.push('/flow')
     },  
 

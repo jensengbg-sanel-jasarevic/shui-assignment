@@ -10,21 +10,21 @@ const router = new Router();
 router.post('/', async (req, res) => {
     if(req.body.username && req.body.password) { // Create user to database
 
-        // Encrypt password
-        const HASHED_PW = await bcrypt.hash(req.body.password, 10);
+        // Hashing password
+        const HASHED_PASSWORD = await bcrypt.hash(req.body.password, 10);
         
-        // Generate USER KEY 
-        const USER_KEY = shortid.generate();
+        // Assign PUBLIC KEY to new user 
+        const PUBLIC_KEY = process.env.PUBLIC_KEY;
         
-        // Encrypt USER KEY with SECRET KEY (stored in env file)
-        const ENCRYPTED_USER_KEY = CryptoJS.AES.encrypt(USER_KEY, process.env.SECRET_KEY).toString();
+        // Encrypt PUBLIC KEY with PRIVATE KEY 
+        const ENCRYPTED_PUBLIC_KEY = CryptoJS.AES.encrypt(PUBLIC_KEY, process.env.PRIVATE_KEY).toString();
 
         // User object for database
         let new_user = {
             uuid: shortid.generate(), // Generate user UUID
-            username: req.body.username,
-            password: HASHED_PW, // Hashed password with bcrypt
-            userkey: ENCRYPTED_USER_KEY, // USER KEY encrypted with SECRET KEY 
+            username: req.body.username, 
+            password: HASHED_PASSWORD, // Hashed password with bcrypt 
+            userkey: ENCRYPTED_PUBLIC_KEY, // Encrypted userkey (PUBLIC KEY) 
         }
 
         // Add new user to database
@@ -45,8 +45,8 @@ router.delete('/', async (req, res) => {
     // Get token from request objects 'Headers' attribute
     const token = req.headers['authorization'].split(' ')[1];
 
-    // Verify user     
     try {
+        // Verify user     
         const verified_user = jwt.verify(token, process.env.JWT_KEY); // Token contains UUID for user, make use of it to search for desired user in database
         
         // Remove user from database
@@ -54,15 +54,20 @@ router.delete('/', async (req, res) => {
         .remove({ uuid: verified_user.uuid })
         .write(); 
         
-       // Remove user from all streams & messages in database, use delete operator to remove property from object
+       // Remove user from all streams & messages where user assigned as subscriber
         db.get('streams')
-        .filter({ subscriber: CryptoJS.SHA3(verified_user.uuid).toString() })
-        .each( (user) => { delete user.subscriber } )
+        .filter({ subscribers: CryptoJS.SHA3(verified_user.uuid).toString() })
+        .each( (user) => { delete user.subscribers } )
         .write();  
         
         db.get('messages')
-        .filter({ subscriber: CryptoJS.SHA3(verified_user.uuid).toString() })
-        .each( (user) => { delete user.subscriber } )
+        .filter({ subscribers: CryptoJS.SHA3(verified_user.uuid).toString() })
+        .each( (user) => { delete user.subscribers } )
+        .write();  
+
+        // Remove all messages written by user
+        db.get('messages')
+        .remove({ author: CryptoJS.SHA3(verified_user.uuid).toString() })
         .write();
        
         // HTTP 200 OK

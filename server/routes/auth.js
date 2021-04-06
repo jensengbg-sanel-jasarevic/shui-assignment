@@ -7,6 +7,7 @@ const router = new Router();
 
 // POST login authentication & authorization
 router.post('/login', async (req, res) => {
+    
     // Check if user exist in database, authenticate
     let user = db.get('users')
     .find( {username: req.body.username} )
@@ -16,23 +17,19 @@ router.post('/login', async (req, res) => {
     if(user){
         // Check if plain password match with hashed password in database
         const valid = await bcrypt.compare(req.body.password, user.password)
-        
+   
         if(valid){
-            // Decrypt users USERKEY with SECRET KEY from env file
-            const bytes = CryptoJS.AES.decrypt(user.userkey, process.env.SECRET_KEY);
-            const DECRYPTED_USER_KEY = bytes.toString(CryptoJS.enc.Utf8);
-
-            // Encrypt SECRET KEY
-            const ENCRYPTED_SECRET_KEY = CryptoJS.AES.encrypt(process.env.SECRET_KEY, DECRYPTED_USER_KEY).toString();
+            // Decrypt userkey (PUBLIC KEY) with PRIVATE KEY
+            const bytes = CryptoJS.AES.decrypt(user.userkey, process.env.PRIVATE_KEY);
+            const DECRYPTED_USERKEY = bytes.toString(CryptoJS.enc.Utf8);
 
             // Assign valid JWT (user UUID)
             const token = jwt.sign({ uuid: user.uuid }, process.env.JWT_KEY);
 
-            // HTTP 200 OK, send JWT + USER KEY + SECRET KEY
+            // HTTP 200 OK, send JWT + DECRYPTED_USERKEY
             res.status(200).send({
                 token: token,
-                userkey: DECRYPTED_USER_KEY,
-                secretkey: ENCRYPTED_SECRET_KEY
+                userkey: DECRYPTED_USERKEY,
             });    
 
         } else {

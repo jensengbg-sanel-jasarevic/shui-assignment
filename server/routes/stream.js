@@ -8,7 +8,7 @@ const router = new Router();
 router.get('/', async (req, res) => {
     const token = req.headers['authorization'].split(' ')[1];
      
-    // Verify if user should access data      
+    // Verify user, right to access data if valid     
     try {
     jwt.verify(token, process.env.JWT_KEY);
     
@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
         // HTTP 200 OK
         res.status(200).send(tags);    
     };
-    
+
     } 
     catch(err) {
     // HTTP 403 Forbidden
@@ -49,7 +49,7 @@ router.post('/', async (req, res) => {
         // New stream object
         const new_tag = {
             tag: req.body.tag,
-            subscriber: CryptoJS.SHA3(user.uuid).toString()
+            subscribers: CryptoJS.SHA3(user.uuid).toString()
         }   
         
         db.get('streams')

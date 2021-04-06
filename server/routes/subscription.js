@@ -8,7 +8,7 @@ const router = new Router();
 router.put('/', async (req, res) => {
     const token = req.headers['authorization'].split(' ')[1];
 
-    // Check if user should be allowed to make put request      
+    // Verify user, if valid allow to make put request      
     try {
         const verified_user = jwt.verify(token, process.env.JWT_KEY); 
 
@@ -17,15 +17,16 @@ router.put('/', async (req, res) => {
         .value();
 
         // Add user to stream that is requested
+        // Hash user UUID with SHA-3 in database
         db.get('streams')
         .filter( {tag: req.body.tag} )
-        .each( (stream) => { stream.subscriber = CryptoJS.SHA3(user.uuid).toString() }) 
+        .each( (stream) => { stream.subscribers = CryptoJS.SHA3(user.uuid).toString() }) 
         .write();
 
         // Add user to receive messages where tags include users desired stream 
         db.get('messages')
         .filter({ tags: [req.body.tag] })
-        .each( (msg) => { msg.subscriber = CryptoJS.SHA3(user.uuid).toString() }) 
+        .each( (msg) => { msg.subscribers = CryptoJS.SHA3(user.uuid).toString() }) 
         .write();
 
         // HTTP 200 OK, request succeeded
@@ -46,13 +47,15 @@ router.delete('/:tag', async (req, res) => {
     try {
         jwt.verify(token, process.env.JWT_KEY);
 
+        // Remove stream
         db.get('streams')
         .remove( {tag: selected_tag} )
         .write();
 
-        // Delete user from stream messages, if message contains only the requested tag to be deleted
+        // Delete user from receiving stream messages, if message contains only the requested stream to be deleted
+        // User will continue to receive messages where one of user subscription is included
         db.get('messages')
-        .each( (stream) => { if(stream.tags.length == 1 && stream.tags[0] == selected_tag) { delete stream.subscriber } })
+        .each( (stream) => { if(stream.tags.length == 1 && stream.tags[0] == selected_tag) { delete stream.subscribers } })
         .write();
 
         // HTTP 200 OK, request succeeded

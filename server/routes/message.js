@@ -15,7 +15,7 @@ let minutes = date.getMinutes();
 router.post('/', async (req, res) => {
     const token = req.headers['authorization'].split(' ')[1];
 
-    // Check if user should be allowed to post      
+    // Verify user, allowed to post only if valid user    
     try {
         const verified_user = jwt.verify(token, process.env.JWT_KEY); 
 
@@ -23,17 +23,18 @@ router.post('/', async (req, res) => {
         .find( {uuid: verified_user.uuid} )
         .value();
         
-        // Encrypt info for database
+        // User message object for database
         const user_msg = {
             id: shortid.generate(),
-            text: CryptoJS.AES.encrypt(req.body.content, process.env.SECRET_KEY).toString(),
+            text: CryptoJS.AES.encrypt(req.body.content, process.env.PUBLIC_KEY).toString(), // Encrypt text with PUBLIC KEY
             tags: req.body.tag,
             date: `${weekday[date.getDay()]}` + `${months[date.getMonth()]}` + `${hour}:${minutes}`,
             username: user.username,
-            subscriber: CryptoJS.SHA3(user.uuid).toString() // User encrypted in database
+            author: CryptoJS.SHA3(user.uuid).toString(),
+            subscribers: CryptoJS.SHA3(user.uuid).toString() // Hash user UUID with SHA-3 in database 
         }   
         
-        // Add msg to beginning of array
+        // Add message to beginning of array
         db.get('messages')
         .unshift(user_msg)        
         .write()

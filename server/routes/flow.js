@@ -12,12 +12,12 @@ router.get('/', async (req, res) => {
     try {
         const verified_user = jwt.verify(token, process.env.JWT_KEY);
         
-        // Users UUID is hashed in database where messages is stored
-        // JWT contains users UUID, hash it then search in database to find user
-        const HASHED_UUID = CryptoJS.SHA3(verified_user.uuid).toString()
+        // User UUID is hashed in database
+        // JWT contains user UUID, hash it then search in database to find user
+        const HASHED_USER_UUID = CryptoJS.SHA3(verified_user.uuid).toString()
 
         let users_flow = db.get('messages')
-        .filter( {subscriber: HASHED_UUID} )
+        .filter( {subscribers: HASHED_USER_UUID} )
         .value(); 
 
         // HTTP 200 OK, send results
