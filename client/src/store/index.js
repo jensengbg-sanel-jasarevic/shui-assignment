@@ -14,14 +14,13 @@ export default new Vuex.Store({
     userFlow: [],
     streams: [],
     deletedUserMsg: "",
-    plainView: Object
   },
 
   mutations: {
     toggle(state) {
       state.showSettings = !state.showSettings;
     },
-    setFlow(state, flow){
+    setPlainFlow(state, flow){
       state.userFlow = flow;
     },
     setStreams(state, streams){
@@ -29,9 +28,6 @@ export default new Vuex.Store({
     },
     deletedUser(state){
       state.deletedUserMsg = "You no longer exists in Shui system";
-    },
-    setPlainView(state, plainView){
-      state.plainView = plainView;
     },
     
   },
@@ -70,19 +66,32 @@ export default new Vuex.Store({
           'authorization': `Bearer ${sessionStorage.getItem('loggedInToken')}`
         } 
       });
+
+      const flow = resp.data.map((messages) => {
+        return {
+          date: messages.date,
+          username: messages.username,
+          tags: messages.tags,
+          content: CryptoJS.AES.decrypt(messages.content, sessionStorage.getItem('loggedInUserKey')).toString(CryptoJS.enc.Utf8)
+        };
+      });
+
+      console.log("no", resp.data) 
+
       console.log(resp) // Error handle
-      commit('setFlow', resp.data)
+      commit('setPlainFlow', flow)
     },
 
     async decryptedFlow({ commit }, flowMsg){
       // Decrypted content data
-      const content = CryptoJS.AES.decrypt(flowMsg.content, sessionStorage.getItem('loggedInUserKey')).toString(CryptoJS.enc.Utf8)
+      console.log("sss", flowMsg.content)
+      const contents = CryptoJS.AES.decrypt(flowMsg.content, sessionStorage.getItem('loggedInUserKey')).toString(CryptoJS.enc.Utf8)
+      console.log("Decryptedd", contents)
 
       commit('setPlainView', {    
-        content: content
+        content: contents
       });
 
-      console.log("Decrypted", content)
     },    
 
     async getStreams({ commit }){

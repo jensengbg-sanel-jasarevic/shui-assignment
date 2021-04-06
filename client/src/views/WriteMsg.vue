@@ -22,6 +22,7 @@ export default {
   tag: ''
   }
   },
+ 
 
   methods: {
   newMsg(){

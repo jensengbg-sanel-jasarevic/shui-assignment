@@ -1,30 +1,40 @@
 {
   "users": [
     {
-      "uuid": "IxwTm0A5K4",
-      "username": "1",
-      "password": "$2b$10$Rx3EnPbccILNTgfF1H1XwuKi1k4Yr7X7Si1LwmyWyq892ZTm7fax.",
-      "userkey": "U2FsdGVkX19pPlmAVRWBDJ+zO7NwLgkIjVM6odmox1Q="
+      "uuid": "Np-Tw5K9j7",
+      "username": "12",
+      "password": "$2b$10$zhRdw2.sFL9i3B6kfkfmXeg.eYKe8ZEE1.Y0rWM86jvXNiT97fqkO",
+      "userkey": "U2FsdGVkX19unr3AepKozHbjS1/Zs86IPXxf7dvIC+Y="
+    },
+    {
+      "uuid": "CfQhHX8O9g",
+      "username": "77",
+      "password": "$2b$10$gNflYPuHjHNjgtWhOnZy2Ov.gWM0Z4KJOLzhidA9jjVDas814lGbG",
+      "userkey": "U2FsdGVkX1/qvsSlyRwEOFe6S8yqdItaIq1bPgLX6TA="
     }
   ],
   "streams": [
     {
       "tag": "gothenburg",
-      "subscriber": "5d55558ee8a21fc93f0b328fa6cf5cd3ab525e6b939084168660faaaf7badcfbf8abc3b4d49e5c4d8fa5f8d244856df67adccaf1dbf1ba7ef14f5a78b2f35602"
+      "subscriber": "7838ce8ef7e83005bc20f16a9e6e198dd08ae14135e33e491b117457afe39f98e4d7d3599bdb12cd0b827d6d63a50bea0729fee524ac29ed9e191ef23fd0ecc5"
     },
     {
       "tag": "boras",
-      "subscriber": "612ed96153eaf98c59df3cd934e3ad63a68607e607e57e439838210343b40b8139dd34e5ae08483c920e793f3b05620d62a32b4848906f36c4033fa87892f42b"
+      "subscriber": "7838ce8ef7e83005bc20f16a9e6e198dd08ae14135e33e491b117457afe39f98e4d7d3599bdb12cd0b827d6d63a50bea0729fee524ac29ed9e191ef23fd0ecc5"
     },
     {
       "tag": "urgent",
       "subscriber": "5d55558ee8a21fc93f0b328fa6cf5cd3ab525e6b939084168660faaaf7badcfbf8abc3b4d49e5c4d8fa5f8d244856df67adccaf1dbf1ba7ef14f5a78b2f35602"
+    },
+    {
+      "tag": "stockholm",
+      "subscriber": "7838ce8ef7e83005bc20f16a9e6e198dd08ae14135e33e491b117457afe39f98e4d7d3599bdb12cd0b827d6d63a50bea0729fee524ac29ed9e191ef23fd0ecc5"
     }
   ],
   "messages": [
     {
       "id": "3Clm7Gr-F",
-      "content": "Saker händer här och där. Elakingar på spårvagnarna vid Brunnsparken. Se till att vara på plats den tiden, var försiktiga.",
+      "content": "U2FsdGVkX18Q/rooS1s0ykicAIUrVgxW5eR/PSeWUds7AhnFxonDZ8Sw9S0QwYFgoYaPfuWI2+PV/NCDDQQoocYxJy0abV9EC7UQ3yYaaV14UYaflwbRruhg8nnaYBGyIUJiGlkmkikSPMCHeVDd7yVET+SdTlQ7VWd24rSebbXMBRyyKAbzqf0xr1P3CENuhQOx/06tA5GfMpwblm0KXg==",
       "tags": [
         "gothenburg",
         "malmo",
@@ -32,11 +42,11 @@
       ],
       "date": "måndag 3 Nov, 09:23",
       "username": "Snodden",
-      "subscriber": "5d55558ee8a21fc93f0b328fa6cf5cd3ab525e6b939084168660faaaf7badcfbf8abc3b4d49e5c4d8fa5f8d244856df67adccaf1dbf1ba7ef14f5a78b2f35602"
+      "subscriber": "7838ce8ef7e83005bc20f16a9e6e198dd08ae14135e33e491b117457afe39f98e4d7d3599bdb12cd0b827d6d63a50bea0729fee524ac29ed9e191ef23fd0ecc5"
     },
     {
       "id": "f53D5rMtH",
-      "content": "ICA Trumpenten har stängt, jag repeterar. ICA Trumpenten har spelat sitt susta tut! Var försiktiga där ute, detta håller på att balla ur!",
+      "content": "U2FsdGVkX1+BxVRJGUayk07a4mLplr+0dvlFCkQg+WRpnSGnkeCJAzg1On9chyWtOszx4Q2HKMgnH04YrCKhFmyPuhOzsYLFNkkC3nIHKLPUAOLkmomOjCqNO8hxiGB3+TZ+x6CBckjd4DxwKugw5G2tiUscNg+6JiR8d/eeheJm2VOtVSnjj8nIEn6QdCFgUQC4r7bqm8k0CQt8zg+WRg==",
       "tags": [
         "boras",
         "urgent",
@@ -44,16 +54,17 @@
       ],
       "date": "måndag 3 Nov, 12:21",
       "username": "Fagotten",
-      "subscriber": "5d55558ee8a21fc93f0b328fa6cf5cd3ab525e6b939084168660faaaf7badcfbf8abc3b4d49e5c4d8fa5f8d244856df67adccaf1dbf1ba7ef14f5a78b2f35602"
+      "subscriber": "7838ce8ef7e83005bc20f16a9e6e198dd08ae14135e33e491b117457afe39f98e4d7d3599bdb12cd0b827d6d63a50bea0729fee524ac29ed9e191ef23fd0ecc5"
     },
     {
       "id": "2A0EEYtNt",
-      "content": "Undvik Kungsträdgården, där är det massa elakingar. Ta istället den lila linjen ut mot Pluppeberg.",
+      "content": "U2FsdGVkX1/31avclTct8majnZIt/WEmgKKsmSxUdNA3ol3JCgykT+x9GKuaUN8sM6C2u9VBpzDWvAlIRwq9gFBD9wUSJnIjCNvypbyEZ5IsdeGANQxNST3B2EHLsGIoAIC4DSZuCTl3Ca7V9JV4wm4kan6nkDNUfamXQViWu50=",
       "tags": [
         "stockholm"
       ],
       "date": "tisdag 3 Nov, 13:37",
-      "username": "Toffeln"
+      "username": "Toffeln",
+      "subscriber": "7838ce8ef7e83005bc20f16a9e6e198dd08ae14135e33e491b117457afe39f98e4d7d3599bdb12cd0b827d6d63a50bea0729fee524ac29ed9e191ef23fd0ecc5"
     }
   ]
 }
