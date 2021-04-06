@@ -1,6 +1,6 @@
 <template>
   <div class="flow">
-    <FlowContent v-for="(flowMsg, index) in userFlow" :key="index" :flowMsg="flowMsg" />
+    <FlowContent v-for="(flowMsg, index) in plainFlowData" :key="index" :flowMsg="flowMsg" />
     <img class="write-icon" src="@/assets/write.svg" alt="write" @click="$router.push('/writemsg')">   
   </div>
 </template>
@@ -19,8 +19,8 @@ export default {
   },
 
   computed: {
-  userFlow() {
-  return this.$store.state.userFlow;
+  plainFlowData() {
+  return this.$store.state.plainFlowData;
   }
   },
 

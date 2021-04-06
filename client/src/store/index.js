@@ -11,7 +11,7 @@ const API = 'http://localhost:1992';
 export default new Vuex.Store({
   state: {
     showSettings: false,
-    userFlow: [],
+    plainFlowData: [],
     streams: [],
     deletedUserMsg: "",
   },
@@ -21,7 +21,7 @@ export default new Vuex.Store({
       state.showSettings = !state.showSettings;
     },
     setPlainFlow(state, flow){
-      state.userFlow = flow;
+      state.plainFlowData = flow;
     },
     setStreams(state, streams){
       state.streams = streams;
@@ -57,6 +57,8 @@ export default new Vuex.Store({
       });
       sessionStorage.setItem('loggedInToken', resp.data.token);
       sessionStorage.setItem('loggedInUserKey', resp.data.userkey);
+      sessionStorage.setItem('secretKey', resp.data.secretkey);
+
       router.push('/flow')
     },
 
@@ -67,32 +69,21 @@ export default new Vuex.Store({
         } 
       });
 
-      const flow = resp.data.map((messages) => {
+    const DECRYPTED_SECRET_KEY = CryptoJS.AES.decrypt(sessionStorage.getItem('secretKey'), sessionStorage.getItem('loggedInUserKey')).toString(CryptoJS.enc.Utf8)
+
+    const flow = resp.data.map((message) => {
         return {
-          date: messages.date,
-          username: messages.username,
-          tags: messages.tags,
-          content: CryptoJS.AES.decrypt(messages.content, sessionStorage.getItem('loggedInUserKey')).toString(CryptoJS.enc.Utf8)
+          date: message.date,
+          username: message.username,
+          tags: message.tags,
+          content: CryptoJS.AES.decrypt(message.text, DECRYPTED_SECRET_KEY).toString(CryptoJS.enc.Utf8)
         };
       });
 
-      console.log("no", resp.data) 
-
+      console.log("resp data get flow", resp.data) 
       console.log(resp) // Error handle
       commit('setPlainFlow', flow)
     },
-
-    async decryptedFlow({ commit }, flowMsg){
-      // Decrypted content data
-      console.log("sss", flowMsg.content)
-      const contents = CryptoJS.AES.decrypt(flowMsg.content, sessionStorage.getItem('loggedInUserKey')).toString(CryptoJS.enc.Utf8)
-      console.log("Decryptedd", contents)
-
-      commit('setPlainView', {    
-        content: contents
-      });
-
-    },    
 
     async getStreams({ commit }){
       let resp = await axios.get(`${API}/stream`, {
@@ -112,7 +103,6 @@ export default new Vuex.Store({
           'authorization': `Bearer ${sessionStorage.getItem('loggedInToken')}`
         }
       });
-      location.reload()
       console.log(resp) // Error handler
     },  
 
@@ -122,7 +112,6 @@ export default new Vuex.Store({
           'authorization': `Bearer ${sessionStorage.getItem('loggedInToken')}`
         }
       });
-      location.reload()
       console.log(resp) // Error handle
     },
 
@@ -132,7 +121,6 @@ export default new Vuex.Store({
           'authorization': `Bearer ${sessionStorage.getItem('loggedInToken')}` 
         }
       });
-      location.reload()
       console.log(resp) // Error handle
     },
            

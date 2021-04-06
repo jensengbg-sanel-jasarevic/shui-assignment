@@ -1,40 +1,34 @@
 {
   "users": [
     {
-      "uuid": "Np-Tw5K9j7",
-      "username": "12",
-      "password": "$2b$10$zhRdw2.sFL9i3B6kfkfmXeg.eYKe8ZEE1.Y0rWM86jvXNiT97fqkO",
-      "userkey": "U2FsdGVkX19unr3AepKozHbjS1/Zs86IPXxf7dvIC+Y="
-    },
-    {
-      "uuid": "CfQhHX8O9g",
-      "username": "77",
-      "password": "$2b$10$gNflYPuHjHNjgtWhOnZy2Ov.gWM0Z4KJOLzhidA9jjVDas814lGbG",
-      "userkey": "U2FsdGVkX1/qvsSlyRwEOFe6S8yqdItaIq1bPgLX6TA="
+      "uuid": "1NptuIt2p2",
+      "username": "1",
+      "password": "$2b$10$wFfWMor9PXN578hEckFfp.eervYA/.v3ig70qg9AD5aojI538W4Pe",
+      "userkey": "U2FsdGVkX1+hIjLVZLJWsCwDomhVe+Nnj5WwH/C9YJQ="
     }
   ],
   "streams": [
     {
-      "tag": "gothenburg",
-      "subscriber": "7838ce8ef7e83005bc20f16a9e6e198dd08ae14135e33e491b117457afe39f98e4d7d3599bdb12cd0b827d6d63a50bea0729fee524ac29ed9e191ef23fd0ecc5"
+      "tag": "boras",
+      "subscriber": "6c139915252a6cc21ad06da9937f8096a51d5e5e697ddb4f0be8306e7d0bc3df6f6f447cd04ca94dc066a8c10623872276e19e067c978b8a69f6238115dbee79"
     },
     {
-      "tag": "boras",
-      "subscriber": "7838ce8ef7e83005bc20f16a9e6e198dd08ae14135e33e491b117457afe39f98e4d7d3599bdb12cd0b827d6d63a50bea0729fee524ac29ed9e191ef23fd0ecc5"
+      "tag": "gothenburg",
+      "subscriber": "b90e7705cbaf49fafea79be776296c0ec36530f0a5f2406905ebb1553000f357502e4c798f179941a59a675c7d50a3ba1173c47db9972e2d4fa30503dac34d05"
     },
     {
       "tag": "urgent",
-      "subscriber": "5d55558ee8a21fc93f0b328fa6cf5cd3ab525e6b939084168660faaaf7badcfbf8abc3b4d49e5c4d8fa5f8d244856df67adccaf1dbf1ba7ef14f5a78b2f35602"
+      "subscriber": "cb586c98d86256c0c14195ae9c62c2eda25693595dc271ecf48958796b155881d77cd476eec3c601e00602b9551f5bef695e9aa923655a0fa8608803067a6a28"
     },
     {
       "tag": "stockholm",
-      "subscriber": "7838ce8ef7e83005bc20f16a9e6e198dd08ae14135e33e491b117457afe39f98e4d7d3599bdb12cd0b827d6d63a50bea0729fee524ac29ed9e191ef23fd0ecc5"
+      "subscriber": "b90e7705cbaf49fafea79be776296c0ec36530f0a5f2406905ebb1553000f357502e4c798f179941a59a675c7d50a3ba1173c47db9972e2d4fa30503dac34d05"
     }
   ],
   "messages": [
     {
       "id": "3Clm7Gr-F",
-      "content": "U2FsdGVkX18Q/rooS1s0ykicAIUrVgxW5eR/PSeWUds7AhnFxonDZ8Sw9S0QwYFgoYaPfuWI2+PV/NCDDQQoocYxJy0abV9EC7UQ3yYaaV14UYaflwbRruhg8nnaYBGyIUJiGlkmkikSPMCHeVDd7yVET+SdTlQ7VWd24rSebbXMBRyyKAbzqf0xr1P3CENuhQOx/06tA5GfMpwblm0KXg==",
+      "text": "U2FsdGVkX1+hKKKKd1REXRU1a6VJyoSQI3C9rLgeODQISCYIE7iIByAVjbp0UAfXCWUBwDRVu+EcHgyp8JyiMsqw4BkLdDuJ7IKbgyGTQ8T9gPR1ruwHQOP3/8jTycdhPY3fyjylCOM39x276D+b2254sMqkq1w9FmVsMDiGlVnvUsOOs02eMgwHLzh/ZpEQ5KuSvCn2+VRf5LO4H7ezfw==",
       "tags": [
         "gothenburg",
         "malmo",
@@ -42,11 +36,11 @@
       ],
       "date": "måndag 3 Nov, 09:23",
       "username": "Snodden",
-      "subscriber": "7838ce8ef7e83005bc20f16a9e6e198dd08ae14135e33e491b117457afe39f98e4d7d3599bdb12cd0b827d6d63a50bea0729fee524ac29ed9e191ef23fd0ecc5"
+      "subscriber": "b90e7705cbaf49fafea79be776296c0ec36530f0a5f2406905ebb1553000f357502e4c798f179941a59a675c7d50a3ba1173c47db9972e2d4fa30503dac34d05"
     },
     {
       "id": "f53D5rMtH",
-      "content": "U2FsdGVkX1+BxVRJGUayk07a4mLplr+0dvlFCkQg+WRpnSGnkeCJAzg1On9chyWtOszx4Q2HKMgnH04YrCKhFmyPuhOzsYLFNkkC3nIHKLPUAOLkmomOjCqNO8hxiGB3+TZ+x6CBckjd4DxwKugw5G2tiUscNg+6JiR8d/eeheJm2VOtVSnjj8nIEn6QdCFgUQC4r7bqm8k0CQt8zg+WRg==",
+      "text": "U2FsdGVkX1+yObDYVD5U67zamtA53oObZ0xZRBsH1bY6z8pqyYZuzDiX4M57BAgyZc5SBO8/BUFvyytY3TSVgjpc295mEVcX5AoTJrDbRyulngo9IaH2E8n0pEVsCGDyct+cLAvT1mf/ySVbKFMELb8EzSAvv5C9q5Y+YWofQVHUZblsxkuduVO/tLMgUYCH198NwCwCSJNSsn9Mcs+RPg==",
       "tags": [
         "boras",
         "urgent",
@@ -54,17 +48,17 @@
       ],
       "date": "måndag 3 Nov, 12:21",
       "username": "Fagotten",
-      "subscriber": "7838ce8ef7e83005bc20f16a9e6e198dd08ae14135e33e491b117457afe39f98e4d7d3599bdb12cd0b827d6d63a50bea0729fee524ac29ed9e191ef23fd0ecc5"
+      "subscriber": "b90e7705cbaf49fafea79be776296c0ec36530f0a5f2406905ebb1553000f357502e4c798f179941a59a675c7d50a3ba1173c47db9972e2d4fa30503dac34d05"
     },
     {
       "id": "2A0EEYtNt",
-      "content": "U2FsdGVkX1/31avclTct8majnZIt/WEmgKKsmSxUdNA3ol3JCgykT+x9GKuaUN8sM6C2u9VBpzDWvAlIRwq9gFBD9wUSJnIjCNvypbyEZ5IsdeGANQxNST3B2EHLsGIoAIC4DSZuCTl3Ca7V9JV4wm4kan6nkDNUfamXQViWu50=",
+      "text": "U2FsdGVkX19mw1HeDCwdQv4ATj4R5Y6ou6FThvxEEaTWJcsWo4N+fjeoECGaAlh4K+EKYae1o2C1rz+tAwmjJSwDfwOVk4Awh7/zvtMo9FWvB99qm2iTRk6FZ1rIAd8MOlgLYh86OAmbjkSrsrrXMZIdtICy75HhQDBA3X7vulk=",
       "tags": [
         "stockholm"
       ],
       "date": "tisdag 3 Nov, 13:37",
       "username": "Toffeln",
-      "subscriber": "7838ce8ef7e83005bc20f16a9e6e198dd08ae14135e33e491b117457afe39f98e4d7d3599bdb12cd0b827d6d63a50bea0729fee524ac29ed9e191ef23fd0ecc5"
+      "subscriber": "b90e7705cbaf49fafea79be776296c0ec36530f0a5f2406905ebb1553000f357502e4c798f179941a59a675c7d50a3ba1173c47db9972e2d4fa30503dac34d05"
     }
   ]
 }

@@ -22,15 +22,19 @@ router.post('/login', async (req, res) => {
             const bytes = CryptoJS.AES.decrypt(user.userkey, process.env.SECRET_KEY);
             const DECRYPTED_USER_KEY = bytes.toString(CryptoJS.enc.Utf8);
 
+            // Encrypt SECRET KEY
+            const ENCRYPTED_SECRET_KEY = CryptoJS.AES.encrypt(process.env.SECRET_KEY, DECRYPTED_USER_KEY).toString();
+
             // Assign valid JWT (user UUID)
             const token = jwt.sign({ uuid: user.uuid }, process.env.JWT_KEY);
 
-            // HTTP 200 OK, send JWT + USER KEY (decrypted SECRET KEY) 
+            // HTTP 200 OK, send JWT + USER KEY + SECRET KEY
             res.status(200).send({
                 token: token,
-                userkey: DECRYPTED_USER_KEY
+                userkey: DECRYPTED_USER_KEY,
+                secretkey: ENCRYPTED_SECRET_KEY
             });    
-   
+
         } else {
             // HTTP 401 Unauthorized
             res.status(401).send('Lacks valid authentication credentials.');

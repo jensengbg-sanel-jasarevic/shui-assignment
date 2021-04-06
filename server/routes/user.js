@@ -15,7 +15,7 @@ router.post('/', async (req, res) => {
         
         // Generate USER KEY 
         const USER_KEY = shortid.generate();
-
+        
         // Encrypt USER KEY with SECRET KEY (stored in env file)
         const ENCRYPTED_USER_KEY = CryptoJS.AES.encrypt(USER_KEY, process.env.SECRET_KEY).toString();
 

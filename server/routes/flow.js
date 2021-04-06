@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
         // Users UUID is hashed in database where messages is stored
         // JWT contains users UUID, hash it then search in database to find user
         const HASHED_UUID = CryptoJS.SHA3(verified_user.uuid).toString()
-        
+
         let users_flow = db.get('messages')
         .filter( {subscriber: HASHED_UUID} )
         .value(); 

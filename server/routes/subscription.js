@@ -52,7 +52,7 @@ router.delete('/:tag', async (req, res) => {
 
         // Delete user from stream messages, if message contains only the requested tag to be deleted
         db.get('messages')
-        .each((stream) => { if (stream.length < 1 && stream.tags[0] == selected_tag) { delete stream.subscriber } })
+        .each( (stream) => { if(stream.tags.length == 1 && stream.tags[0] == selected_tag) { delete stream.subscriber } })
         .write();
 
         // HTTP 200 OK, request succeeded
