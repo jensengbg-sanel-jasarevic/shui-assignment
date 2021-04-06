@@ -1,22 +1,12 @@
 {
   "users": [
-    {
-      "uuid": "Rhu1WlEST",
-      "username": "2",
-      "password": "$2b$10$ClytwMI6Q2adWAEi2JY/VecHXgdo2Ue8c8bxbEvuS2QxLTII.k13m",
-      "userkey": "U2FsdGVkX1/wpqC+WiF25WZXFWs0vZSaPs1nDWISJ4T9yiz7aP9E2beJ4e9HAmYUYejC2k18yRQSaAeamrG1zQ=="
-    },
-    {
-      "uuid": "fQG4Ng3cz",
-      "username": "2",
-      "password": "$2b$10$QVuHZALk6ZoqO.01it51A.8YyPQj8QPGQJvnlHjP2JlXVuWOyypcS",
-      "userkey": "U2FsdGVkX1/1dNj0JY/b1qbJqxr1T64CF8PLkNwj9602v+AqscI7QeHOpAbT/y07c9qHFHbJN7uSbjRexp8M6w=="
-    }
   ],
   "streams": [
     {
-      "tag": "boras",
-      "subscribers": "945edaa608c127feb023afead29d05ffabc779e440197214ca49737c645af1f12b9fbf5759d3122718a1287bdd04a46fdbd2e97fb6db98b2fb09efce41c570fa"
+      "tag": "gothenburg"
+    },
+    {
+      "tag": "boras"
     },
     {
       "tag": "urgent"
