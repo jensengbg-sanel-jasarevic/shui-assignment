@@ -30,9 +30,10 @@ export default {
 ul {
   list-style: none;
   color: white;
-  float: left;
 }
 .settings-tags {
+  float: left;
+  margin-right: 1em;
   padding: 0.3em;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 5%;

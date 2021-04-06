@@ -21,6 +21,10 @@ export default {
   FlowStreams
   },
 
+  beforeMount(){
+  this.$store.dispatch('decryptedFlow', this.flowMsg);
+  },
+
 }
 </script>
 

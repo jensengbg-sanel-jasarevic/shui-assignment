@@ -24,12 +24,12 @@ router.post('/', async (req, res) => {
         .value();
 
         // Decrypt USER KEY with the SECRET KEY
-        // let DECRYPTED_USER_KEY = CryptoJS.AES.decrypt(user.userkey, process.env.SECRET_KEY).toString(CryptoJS.enc.Utf8);
-
+        let DECRYPTED_USER_KEY = CryptoJS.AES.decrypt(user.userkey, process.env.SECRET_KEY).toString(CryptoJS.enc.Utf8);
+        
         // Encrypt info for database
         const user_msg = {
             id: shortid.generate(),
-            content: req.body.content, // Should be encrypted with user key
+            content: CryptoJS.AES.encrypt(req.body.content, DECRYPTED_USER_KEY).toString(),
             tags: req.body.tag,
             date: `${weekday[date.getDay()]}` + `${months[date.getMonth()]}` + `${hour}:${minutes}`,
             username: user.username,

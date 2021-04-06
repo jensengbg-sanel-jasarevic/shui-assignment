@@ -65,7 +65,7 @@ export default {
     top: 0;
     left: 0;
     width: 100vw;
-    height: 75vh;
+    height: 80vh;
     background: #EF4343;
     box-shadow: 0px 0px 0px 100vh rgba(0,0,0,0.69);
 }
@@ -75,7 +75,7 @@ h1 {
 form {
     display: inline-flex;
     min-width: 80%;
-    margin-top: 100px;
+    margin-top: 70px;
 }
 input {
     height: 4rem;

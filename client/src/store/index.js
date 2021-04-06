@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+import CryptoJS from 'crypto-js';
 import router from './../router'
 
 Vue.use(Vuex)
@@ -12,7 +13,8 @@ export default new Vuex.Store({
     showSettings: false,
     userFlow: [],
     streams: [],
-    deletedUserMsg: ""
+    deletedUserMsg: "",
+    plainView: Object
   },
 
   mutations: {
@@ -27,7 +29,10 @@ export default new Vuex.Store({
     },
     deletedUser(state){
       state.deletedUserMsg = "You no longer exists in Shui system";
-    }
+    },
+    setPlainView(state, plainView){
+      state.plainView = plainView;
+    },
     
   },
   actions: {
@@ -35,7 +40,6 @@ export default new Vuex.Store({
       let resp = await axios.post(`${API}/user`, newUser, {
       });            
       console.log(resp) // Error handle
-    
       router.push('/login')
     },
 
@@ -46,7 +50,6 @@ export default new Vuex.Store({
         }
       });
       console.log(resp) // Error handle
-
       commit('deletedUser')
       router.push('/deleted')
     },    
@@ -58,7 +61,6 @@ export default new Vuex.Store({
       });
       sessionStorage.setItem('loggedInToken', resp.data.token);
       sessionStorage.setItem('loggedInUserKey', resp.data.userkey);
- 
       router.push('/flow')
     },
 
@@ -68,22 +70,28 @@ export default new Vuex.Store({
           'authorization': `Bearer ${sessionStorage.getItem('loggedInToken')}`
         } 
       });
-
       console.log(resp) // Error handle
       commit('setFlow', resp.data)
     },
 
+    async decryptedFlow({ commit }, flowMsg){
+      // Decrypted content data
+      const content = CryptoJS.AES.decrypt(flowMsg.content, sessionStorage.getItem('loggedInUserKey')).toString(CryptoJS.enc.Utf8)
+
+      commit('setPlainView', {    
+        content: content
+      });
+
+      console.log("Decrypted", content)
+    },    
+
     async getStreams({ commit }){
       let resp = await axios.get(`${API}/stream`, {
-        // responseType: 'text', (Returns STRING from server)
-        // transformResponse: [v => v],
         headers: {
           'authorization': `Bearer ${sessionStorage.getItem('loggedInToken')}`
         } 
       });
-
       console.log(resp) // Error handle
-      console.log("getStreams resp.data,", resp.data)
       commit('setStreams', resp.data)
     },
 
@@ -95,6 +103,7 @@ export default new Vuex.Store({
           'authorization': `Bearer ${sessionStorage.getItem('loggedInToken')}`
         }
       });
+      location.reload()
       console.log(resp) // Error handler
     },  
 
@@ -103,7 +112,8 @@ export default new Vuex.Store({
         headers: {
           'authorization': `Bearer ${sessionStorage.getItem('loggedInToken')}`
         }
-    });
+      });
+      location.reload()
       console.log(resp) // Error handle
     },
 
@@ -113,6 +123,7 @@ export default new Vuex.Store({
           'authorization': `Bearer ${sessionStorage.getItem('loggedInToken')}` 
         }
       });
+      location.reload()
       console.log(resp) // Error handle
     },
            

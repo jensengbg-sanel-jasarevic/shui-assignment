@@ -1,48 +1,27 @@
 {
   "users": [
     {
-      "uuid": "6lepoFrMpE",
+      "uuid": "IxwTm0A5K4",
       "username": "1",
-      "password": "$2b$10$Ph8R73lWv0uAeAi88FzpKeMqO/yy4QbF2lXVdnaJlo0IdrRO3K0au",
-      "userkey": "U2FsdGVkX1/oT+7/KHYbkjwTe+Ekc1TZ8B/Ylz35wlo="
+      "password": "$2b$10$Rx3EnPbccILNTgfF1H1XwuKi1k4Yr7X7Si1LwmyWyq892ZTm7fax.",
+      "userkey": "U2FsdGVkX19pPlmAVRWBDJ+zO7NwLgkIjVM6odmox1Q="
     }
   ],
   "streams": [
     {
-      "tag": "gothenburg"
+      "tag": "gothenburg",
+      "subscriber": "5d55558ee8a21fc93f0b328fa6cf5cd3ab525e6b939084168660faaaf7badcfbf8abc3b4d49e5c4d8fa5f8d244856df67adccaf1dbf1ba7ef14f5a78b2f35602"
     },
     {
-      "tag": "urgent"
+      "tag": "boras",
+      "subscriber": "612ed96153eaf98c59df3cd934e3ad63a68607e607e57e439838210343b40b8139dd34e5ae08483c920e793f3b05620d62a32b4848906f36c4033fa87892f42b"
     },
     {
-      "tag": "milan"
+      "tag": "urgent",
+      "subscriber": "5d55558ee8a21fc93f0b328fa6cf5cd3ab525e6b939084168660faaaf7badcfbf8abc3b4d49e5c4d8fa5f8d244856df67adccaf1dbf1ba7ef14f5a78b2f35602"
     }
   ],
   "messages": [
-    {
-      "id": "PCvmHjoAN",
-      "content": "fdgfd",
-      "tags": [
-        "fdg",
-        "fdg",
-        ""
-      ],
-      "date": "måndag Apr, 23:21",
-      "username": "1",
-      "subscriber": "a6e42bc7d1a56ad1129e4f31607b03aa682b896e551b17e0e75144cd55077ad451b92479c6ddc274fc8871a839e736f12d350036bcfd8ab8c88642f886237dc4"
-    },
-    {
-      "id": "FvyeGSC9l",
-      "content": "fdfgdgdf",
-      "tags": [
-        "sdsdfds",
-        "sfgdfg",
-        "fdg"
-      ],
-      "date": "måndag Apr, 23:21",
-      "username": "1",
-      "subscriber": "a6e42bc7d1a56ad1129e4f31607b03aa682b896e551b17e0e75144cd55077ad451b92479c6ddc274fc8871a839e736f12d350036bcfd8ab8c88642f886237dc4"
-    },
     {
       "id": "3Clm7Gr-F",
       "content": "Saker händer här och där. Elakingar på spårvagnarna vid Brunnsparken. Se till att vara på plats den tiden, var försiktiga.",
@@ -52,7 +31,8 @@
         "urgent"
       ],
       "date": "måndag 3 Nov, 09:23",
-      "username": "Snodden"
+      "username": "Snodden",
+      "subscriber": "5d55558ee8a21fc93f0b328fa6cf5cd3ab525e6b939084168660faaaf7badcfbf8abc3b4d49e5c4d8fa5f8d244856df67adccaf1dbf1ba7ef14f5a78b2f35602"
     },
     {
       "id": "f53D5rMtH",
@@ -63,7 +43,8 @@
         "stockholm"
       ],
       "date": "måndag 3 Nov, 12:21",
-      "username": "Fagotten"
+      "username": "Fagotten",
+      "subscriber": "5d55558ee8a21fc93f0b328fa6cf5cd3ab525e6b939084168660faaaf7badcfbf8abc3b4d49e5c4d8fa5f8d244856df67adccaf1dbf1ba7ef14f5a78b2f35602"
     },
     {
       "id": "2A0EEYtNt",

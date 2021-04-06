@@ -39,20 +39,9 @@ export default {
 h2 {
   color: #00B2FF;
 }
-section {
-  width: 100%;
-  margin-top: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
 input {
-  text-align: center;
-  display: inline-flex;
   height: 4rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center; 
   font-size: 1.4rem;
   text-decoration: none;
   color: white;
@@ -64,9 +53,8 @@ input {
   margin-bottom: 1%;
 }
 .btn {
-  display: inline-flex;
   height: 4rem;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   font-size: 1.4rem;
