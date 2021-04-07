@@ -30,8 +30,9 @@ router.post('/', async (req, res) => {
             tags: req.body.tag,
             date: `${weekday[date.getDay()]}` + `${months[date.getMonth()]}` + `${hour}:${minutes}`,
             username: user.username,
+            // Hash user UUID with SHA-3 in database 
             author: CryptoJS.SHA3(user.uuid).toString(),
-            subscribers: CryptoJS.SHA3(user.uuid).toString() // Hash user UUID with SHA-3 in database 
+            subscribers: CryptoJS.SHA3(user.uuid).toString() 
         }   
         
         // Add message to beginning of array
