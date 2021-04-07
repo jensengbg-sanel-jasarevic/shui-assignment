@@ -19,17 +19,18 @@ router.post('/login', async (req, res) => {
         const valid = await bcrypt.compare(req.body.password, user.password)
    
         if(valid){
-            // Decrypt userkey (PUBLIC KEY) with PRIVATE KEY
+            // Decrypt PUBLIC KEY with PRIVATE KEY
             const bytes = CryptoJS.AES.decrypt(user.userkey, process.env.PRIVATE_KEY);
-            const DECRYPTED_USERKEY = bytes.toString(CryptoJS.enc.Utf8);
+            const DECRYPTED_PUBLIC_KEY = bytes.toString(CryptoJS.enc.Utf8);
 
-            // Assign valid JWT (user UUID)
+            // Generate token that has the claim of user
+            // Assign valid JWT (user UUID, sign with JWT KEY)
             const token = jwt.sign({ uuid: user.uuid }, process.env.JWT_KEY);
 
-            // HTTP 200 OK, send JWT + DECRYPTED_USERKEY
+            // HTTP 200 OK, send JWT + decrypted PUBLIC KEY
             res.status(200).send({
                 token: token,
-                userkey: DECRYPTED_USERKEY,
+                userkey: DECRYPTED_PUBLIC_KEY, // For decrypting database text messages on frontend
             });    
 
         } else {

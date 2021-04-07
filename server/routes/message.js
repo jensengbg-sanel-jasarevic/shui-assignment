@@ -15,7 +15,7 @@ let minutes = date.getMinutes();
 router.post('/', async (req, res) => {
     const token = req.headers['authorization'].split(' ')[1];
 
-    // Verify user, allowed to post only if valid user    
+    // Verify user, allow to post only if valid user    
     try {
         const verified_user = jwt.verify(token, process.env.JWT_KEY); 
 

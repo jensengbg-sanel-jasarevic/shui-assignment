@@ -39,6 +39,18 @@ export default new Vuex.Store({
       router.push('/login')
     },
 
+    async login(ctx, cred) {
+      let resp = await axios.post(`${API}/auth/login`, {
+        username: cred.username,
+        password: cred.password
+      });
+      // Get token & userkey (public key) from server response 
+      sessionStorage.setItem('token', resp.data.token);
+      sessionStorage.setItem('userkey', resp.data.userkey);
+
+      router.push('/flow')
+    },
+
     async deleteUser({ commit }) {
       let resp = await axios.delete(`${API}/user`, {
         headers: {
@@ -51,34 +63,26 @@ export default new Vuex.Store({
       router.push('/deleted')
     },    
 
-    async login(ctx, cred) {
-      let resp = await axios.post(`${API}/auth/login`, {
-        username: cred.username,
-        password: cred.password
-      });
-      sessionStorage.setItem('token', resp.data.token);
-      sessionStorage.setItem('userkey', resp.data.userkey);
-
-      router.push('/flow')
-    },
-
     async getFlow({ commit }){
       let resp = await axios.get(`${API}/flow`, {
+        // Set headers authorization to get data from server
         headers: {
-          'authorization': `Bearer ${sessionStorage.getItem('token')}`
+          'authorization': `Bearer ${sessionStorage.getItem('token')}` 
         } 
       });
       console.log(resp) 
 
+      // Create new array with results of decrypting content on original array
       const flow = resp.data.map((message) => {
         return {
           date: message.date,
           username: message.username,
           tags: message.tags,
+          // Decrypt with userkey (public key)
           content: CryptoJS.AES.decrypt(message.text, sessionStorage.getItem('userkey')).toString(CryptoJS.enc.Utf8)
         };
       });
-         
+
       commit('setPlainFlow', flow)
     },
 
@@ -95,13 +99,14 @@ export default new Vuex.Store({
 
     // With PUT & POST requests 2nd argument is request body
     // Pass object with headers property as the 3rd argument
+    // Use token to prove that logged in as user (token contains user UUID, signed by server private "JWT KEY")
     async subscribe(ctx, subscribeStream) {
       let resp = await axios.put(`${API}/subscription`, { tag: subscribeStream }, {
         headers: {
           'authorization': `Bearer ${sessionStorage.getItem('token')}`
         }
       });
-      console.log(resp) 
+      console.log(resp) // Error handle
     },  
 
     async unsubscribe(ctx, unsubscribeStream) {
@@ -121,14 +126,14 @@ export default new Vuex.Store({
       });
       console.log(resp)
     },
-           
+
     async newMsg(ctx, userMsg){
       let resp = await axios.post(`${API}/message`, userMsg, {
-       headers: {
-          'authorization': `Bearer ${sessionStorage.getItem('token')}` // User that request to make post (token contains user UUID)
+       headers: {                                                       
+          'authorization': `Bearer ${sessionStorage.getItem('token')}` 
         }
       });
-      console.log(resp) // Error handle
+      console.log(resp) 
 
       router.push('/flow')
     },  

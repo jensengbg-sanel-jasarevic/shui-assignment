@@ -24,7 +24,7 @@ router.post('/', async (req, res) => {
             uuid: shortid.generate(), // Generate user UUID
             username: req.body.username, 
             password: HASHED_PASSWORD, // Hashed password with bcrypt 
-            userkey: ENCRYPTED_PUBLIC_KEY, // Encrypted userkey (PUBLIC KEY) 
+            userkey: ENCRYPTED_PUBLIC_KEY, // Encrypted user PUBLIC KEY  
         }
 
         // Add new user to database
@@ -46,7 +46,7 @@ router.delete('/', async (req, res) => {
     const token = req.headers['authorization'].split(' ')[1];
 
     try {
-        // Verify user     
+        // Verify user with private JWT KEY     
         const verified_user = jwt.verify(token, process.env.JWT_KEY); // Token contains UUID for user, make use of it to search for desired user in database
         
         // Remove user from database
