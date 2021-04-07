@@ -43,7 +43,7 @@ router.delete('/:tag', async (req, res) => {
     const token = req.headers['authorization'].split(' ')[1];
     const selected_tag = req.params.tag
  
-    // Verification
+    // Verification of user with private JWT KEY
     try {
         jwt.verify(token, process.env.JWT_KEY);
 
@@ -52,8 +52,7 @@ router.delete('/:tag', async (req, res) => {
         .remove( {tag: selected_tag} )
         .write();
 
-        // Delete user from receiving stream messages, if message contains only the requested stream to be deleted
-        // User will continue to receive messages where one of user subscription is included
+        // Delete user from receiving stream messages, if message only contains the requested stream to be deleted
         db.get('messages')
         .each( (stream) => { if(stream.tags.length == 1 && stream.tags[0] == selected_tag) { delete stream.subscribers } })
         .write();
