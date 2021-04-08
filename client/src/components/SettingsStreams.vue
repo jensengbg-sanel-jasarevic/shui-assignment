@@ -17,10 +17,12 @@ export default {
   subscribeStream(e){
   if(e.target.innerText !== ""){
   this.$store.dispatch('subscribe', e.target.innerText.replace("#", "") ) 
+  this.$store.dispatch('getFlow'); // Update Flow view when subscribing
   }
   },
   unsubscribeStream(e){
-  this.$store.dispatch('unsubscribe', e.target.parentNode.innerText.replace("#", "") ) 
+  this.$store.dispatch('unsubscribe', e.target.parentNode.innerText.replace("#", "") )
+  this.$store.dispatch('getFlow'); 
   },
   }
 }

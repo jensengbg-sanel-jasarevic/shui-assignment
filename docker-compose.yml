@@ -1,0 +1,22 @@
+version: "3"
+services:
+  nodejs-backend:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    container_name: node-backend  
+    volumes:
+      - ./api:/usr/src/app/api
+      - /usr/src/app/api/node_modules
+  vuejs-client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    container_name: vue-frontend  
+    volumes:
+      - ./client:/usr/src/app/client
+      - /usr/src/app/client/node_modules

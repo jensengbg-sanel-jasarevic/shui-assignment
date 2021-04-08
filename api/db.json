@@ -1,18 +1,30 @@
 {
   "users": [
+    {
+      "uuid": "y-N2XI5Tu",
+      "username": "55",
+      "password": "$2b$10$sTc4rwBI5Po2GHpXs9hXkeffinoBsx7vc3.Ece5.hOeORNwd4gWnW",
+      "userkey": "U2FsdGVkX1/KLyApeMV/HOnjXQ5Pkp2kDh1nhdqk0bZO05wHKUHzPtkQWsXHYYtKQ7zPAn/0QofyaXp1SPfcbA=="
+    },
+    {
+      "uuid": "1jJBIl0-Y",
+      "username": "33",
+      "password": "$2b$10$J2wdI4LI.HgfxiwA0ugmdO/dX8evMVwXVTdRapUnkvoe.hbjb6GBG",
+      "userkey": "U2FsdGVkX1+70D9fqLtpCM2ZTYFaSig8yzlZOUDbDheReTOAWsaIlWF5fgJh4LLmG4RX8rnevlbsG69xziDiMA=="
+    }
   ],
   "streams": [
     {
       "tag": "gothenburg"
     },
     {
-      "tag": "boras"
-    },
-    {
-      "tag": "urgent"
+      "tag": "oslo"
     },
     {
       "tag": "stockholm"
+    },
+    {
+      "tag": "boras"
     }
   ],
   "messages": [
@@ -21,8 +33,7 @@
       "text": "U2FsdGVkX19R0BOTinK0DAcW04h53kBrxWx/BL8lXEysQEOzwMTs0lxcmrxG55cExdCYTNo4k9V+n9rfvHX4VAFgIJmGKb3k0Ric2ba9JBpPZdb8RAq2dG68uVHvjLZoB6hDgNVbi6bKKwRY+5+ZTtTjFI2HaMHF+QDtzstcMOptx3/NziLXqIJt7KA73QhjwqDQL3+y9Hh/Z5jEXp6DBg==",
       "tags": [
         "gothenburg",
-        "malmo",
-        "urgent"
+        "boras"
       ],
       "date": "måndag 3 Nov, 09:23",
       "username": "Snodden"
@@ -31,9 +42,7 @@
       "id": "f53D5rMtH",
       "text": "U2FsdGVkX19s/ZxduUqiRi+7Wq8w3avQ8KHmjLbquz/75pqaYQcOJC0lNUZQgozsP28DM2rjaB23f34JmUY2DiUM6u3huje6beenl7qJuHuKn8QP4g1S2+XtCo7y1H2A9uK4yZ+yz+j4aT59RXxmr4ZsHVsgPS6Gx+5wq/HY1q97AxtA/i7ZdwGiO8hZqbLeLbuFl8ZtVTXTQBXGt7WQNg==",
       "tags": [
-        "boras",
-        "urgent",
-        "stockholm"
+        "oslo"
       ],
       "date": "måndag 3 Nov, 12:21",
       "username": "Fagotten"

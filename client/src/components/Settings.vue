@@ -47,6 +47,7 @@ export default {
   methods: {
   newStream(){
   this.$store.dispatch('newStream', { tag: this.tag.replace("#", "") } ) 
+  this.$store.dispatch('getStreams') // Update page
   this.tag = '#'
   },      
   deleteUser(){
