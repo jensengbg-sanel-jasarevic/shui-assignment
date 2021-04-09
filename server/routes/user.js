@@ -1,19 +1,19 @@
 const { Router } = require('express');
 const { db } = require('./db');
-//const bcrypt = require('bcrypt');
 const shortid = require('shortid');
 const CryptoJS = require('crypto-js');
 const jwt = require('jsonwebtoken');
 const router = new Router();
+const bcrypt = require('bcryptjs');
+const salt = bcrypt.genSaltSync(10);
 
 // POST new user
 router.post('/', async (req, res) => {
     if(req.body.username && req.body.password) { // Create user to database
 
         // Hashing password
-        const HASHED_PASSWORD = "hah"
-        //await bcrypt.hash(req.body.password, 10);
-        
+        const HASHED_PASSWORD = await bcrypt.hashSync(req.body.password, salt)
+
         // Assign PUBLIC KEY to new user 
         const PUBLIC_KEY = process.env.PUBLIC_KEY;
         

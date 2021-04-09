@@ -22,6 +22,7 @@ export default {
   },
   unsubscribeStream(e){
   this.$store.dispatch('unsubscribe', e.target.parentNode.innerText.replace("#", "") )
+  this.$store.dispatch('getStreams') 
   this.$store.dispatch('getFlow'); 
   },
   }
