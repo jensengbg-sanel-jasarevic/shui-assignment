@@ -46,6 +46,9 @@ export default {
 
   methods: {
   newStream(){
+  if(this.tag == "#") {
+  return
+  }
   this.$store.dispatch('newStream', { tag: this.tag.replace("#", "") } ) 
   this.$store.dispatch('getStreams') // Update page
   this.tag = '#'
