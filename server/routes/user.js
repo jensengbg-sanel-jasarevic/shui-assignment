@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const { db } = require('./db');
-const bcrypt = require('bcrypt');
+//const bcrypt = require('bcrypt');
 const shortid = require('shortid');
 const CryptoJS = require('crypto-js');
 const jwt = require('jsonwebtoken');
@@ -11,7 +11,8 @@ router.post('/', async (req, res) => {
     if(req.body.username && req.body.password) { // Create user to database
 
         // Hashing password
-        const HASHED_PASSWORD = await bcrypt.hash(req.body.password, 10);
+        const HASHED_PASSWORD = "hah"
+        //await bcrypt.hash(req.body.password, 10);
         
         // Assign PUBLIC KEY to new user 
         const PUBLIC_KEY = process.env.PUBLIC_KEY;

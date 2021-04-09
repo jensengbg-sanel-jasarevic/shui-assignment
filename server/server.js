@@ -25,9 +25,9 @@ App.use('/api/stream', stream);
 App.use('/api/subscription', subscription);
 App.use('/api/message', message);
 
-App.use(express.static(path.join(__dirname, "/public")));
+App.use(express.static(path.join(__dirname, "/dist")));
 App.get("/", (req, res) =>
-  res.sendFile(path.join(__dirname, "/public", "index.html"))
+    res.sendFile(path.join(__dirname, "/dist", "index.html"))
 );
 
 App.listen(PORT, () => {
