@@ -37,7 +37,6 @@ databasen och decryptas i din front-end. Du kan ha förkrypterade
 meddelanden i databasen. Använd npm-modulen crypto-js.
 6. Det ska finnas en ”radera mig helt från databasen” - knapp (right to be
 forgotten)
- 
 
 ## Hur ska ni lösa uppgiften?
 * Utgå från skissen
