@@ -31,14 +31,14 @@ export default new Vuex.Store({
   },
   actions: {
     async newUser(ctx, newUser){
-      let resp = await axios.post(`/api/user`, newUser, {
+      let resp = await axios.post(`https://shui-server.herokuapp.com/api/user`, newUser, {
       });            
       console.log(resp) 
       router.push('/login')
     },
 
     async login(ctx, cred) {
-      let resp = await axios.post(`/api/auth/login`, {
+      let resp = await axios.post(`https://shui-server.herokuapp.com/api/auth/login`, {
         username: cred.username,
         password: cred.password
       });
@@ -62,7 +62,7 @@ export default new Vuex.Store({
     },    
 
     async getFlow({ commit }){
-      let resp = await axios.get(`/api/flow`, {
+      let resp = await axios.get(`https://shui-server.herokuapp.com/api/flow`, {
         // Set headers authorization to get data from server
         headers: {
           'authorization': `Bearer ${sessionStorage.getItem('token')}` 
@@ -85,7 +85,7 @@ export default new Vuex.Store({
     },
 
     async getStreams({ commit }){
-      let resp = await axios.get(`/api/stream`, {
+      let resp = await axios.get(`https://shui-server.herokuapp.com/api/stream`, {
         headers: {
           'authorization': `Bearer ${sessionStorage.getItem('token')}`
         } 
@@ -99,7 +99,7 @@ export default new Vuex.Store({
     // Pass object with headers property as the 3rd argument
     // Use token to prove that logged in as user (token contains user UUID, signed by server private "JWT KEY")
     async subscribe(ctx, subscribeStream) {
-      let resp = await axios.put(`/api/subscription`, { tag: subscribeStream }, {
+      let resp = await axios.put(`https://shui-server.herokuapp.com/api/subscription`, { tag: subscribeStream }, {
         headers: {
           'authorization': `Bearer ${sessionStorage.getItem('token')}`
         }
