@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "start": "http-server /app/dist",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "http-server": "^0.12.3",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "crypto-js": "^4.0.0",

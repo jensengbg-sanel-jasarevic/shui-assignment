@@ -11,8 +11,7 @@ const salt = bcrypt.genSaltSync(10);
 router.post('/', async (req, res) => {
     if(req.body.username && req.body.password) { // Create user to database
 
-        // Hash password, add salt to create unique output
-        // Same password input will generate different output when using salt
+        // Hashing password
         const HASHED_PASSWORD = await bcrypt.hashSync(req.body.password, salt)
 
         // Assign PUBLIC KEY to new user 
