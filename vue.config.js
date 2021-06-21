@@ -5,10 +5,8 @@ module.exports = {
     outputDir: path.resolve(path.join(__dirname, "../server/dist")),
     */
     devServer: {
-        proxy: 'https://shui-server.herokuapp.com'
+        proxy: 'http://localhost:5000'
     },
 };
-
-// Local: 'http://localhost:5000'
+// Proxy to the backend API in the development environment (have to use proxy in development phase).
 // Docker container: 'http://server:5000'
-// Cloud: 'https://shui-server.herokuapp.com'
