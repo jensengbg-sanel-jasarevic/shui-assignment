@@ -1,3 +1,5 @@
+// Configure Vue.js app to be served on express server locally.
+// Before start running server.js file script, it's required to build Vue.js app (npm run build). This will create 'dist' directory.
 const express = require('express')
 const serveStatic = require('serve-static')
 const path = require('path')
