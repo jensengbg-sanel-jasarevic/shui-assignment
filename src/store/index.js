@@ -8,6 +8,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    apiURL: "https://shui-server.herokuapp.com",
     showSettings: false,
     plainFlowData: [],
     streams: [],
@@ -31,14 +32,14 @@ export default new Vuex.Store({
   },
   actions: {
     async newUser(ctx, newUser){
-      let resp = await axios.post(`https://shui-server.herokuapp.com/api/user`, newUser, {
+      let resp = await axios.post(`/api/user`, newUser, {
       });            
       console.log(resp) 
       router.push('/login')
     },
 
     async login(ctx, cred) {
-      let resp = await axios.post(`https://shui-server.herokuapp.com/api/auth/login`, {
+      let resp = await axios.post(`/api/auth/login`, {
         username: cred.username,
         password: cred.password
       });
@@ -49,7 +50,7 @@ export default new Vuex.Store({
       router.push('/flow')
     },
 
-    async deleteUser({ commit }) {
+    async deleteUser(ctx) {
       let resp = await axios.delete(`/api/user`, {
         headers: {
           'authorization': `Bearer ${sessionStorage.getItem('token')}`
@@ -57,12 +58,12 @@ export default new Vuex.Store({
       });
       console.log(resp) 
 
-      commit('deletedUser')
+      ctx.commit('deletedUser')
       router.push('/deleted')
     },    
 
-    async getFlow({ commit }){
-      let resp = await axios.get(`https://shui-server.herokuapp.com/api/flow`, {
+    async getFlow(ctx){
+      let resp = await axios.get(`/api/flow`, {
         // Set headers authorization to get data from server
         headers: {
           'authorization': `Bearer ${sessionStorage.getItem('token')}` 
@@ -81,25 +82,25 @@ export default new Vuex.Store({
         };
       });
 
-      commit('setPlainFlow', flow)
+      ctx.commit('setPlainFlow', flow)
     },
 
-    async getStreams({ commit }){
-      let resp = await axios.get(`https://shui-server.herokuapp.com/api/stream`, {
+    async getStreams(ctx){
+      let resp = await axios.get(`/api/stream`, {
         headers: {
           'authorization': `Bearer ${sessionStorage.getItem('token')}`
         } 
       });
       console.log(resp) 
 
-      commit('setStreams', resp.data)
+      ctx.commit('setStreams', resp.data)
     },
 
     // With PUT & POST requests 2nd argument is request body
     // Pass object with headers property as the 3rd argument
     // Use token to prove that logged in as user (token contains user UUID, signed by server private "JWT KEY")
     async subscribe(ctx, subscribeStream) {
-      let resp = await axios.put(`https://shui-server.herokuapp.com/api/subscription`, { tag: subscribeStream }, {
+      let resp = await axios.put(`/api/subscription`, { tag: subscribeStream }, {
         headers: {
           'authorization': `Bearer ${sessionStorage.getItem('token')}`
         }
