@@ -1,6 +1,6 @@
 <template>
   <div id="landing" @click="$router.push('/register')">
-    <img id="shui-logo" src="@/assets/slogo.svg" alt="SHUI logo">
+    <img id="shui-logo" src="@/assets/slogo.svg" alt="Shui logo">
     
     <h2>FLOW FREELY</h2>
 
