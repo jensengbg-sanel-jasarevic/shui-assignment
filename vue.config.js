@@ -9,5 +9,5 @@ module.exports = {
     },
 };
 */
-// Proxy to the backend API in the development environment (have to use proxy in development phase).
-// Docker container: 'http://server:5000'
+// Proxy for backend API calls in the development environment (have to use proxy in development phase).
+// Docker container URL: 'http://server:5000'
