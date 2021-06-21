@@ -6,7 +6,7 @@
       <section>
         <input type="text" name="username" v-model="username" placeholder="Användarnamn" autocomplete="off">
         <input type="password" name="password" v-model="password" placeholder="Lösenord">
-        <a href="#" class="btn" @click.prevent="newUser">Registrera</a>
+        <a href="#" class="btn" @click.prevent="newUser">Registreraaaaaaaa</a>
       </section>
 
     <footer>

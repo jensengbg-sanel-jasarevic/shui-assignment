@@ -1,0 +1,57 @@
+{
+  "users": [
+  ],
+  "streams": [
+    {
+      "tag": "oslo"
+    },
+    {
+      "tag": "boras"
+    },
+    {
+      "tag": "gothenburg"
+    },
+    {
+      "tag": "stockholm"
+    }
+  ],
+  "messages": [
+    {
+      "id": "3Clm7Gr-F",
+      "text": "U2FsdGVkX19R0BOTinK0DAcW04h53kBrxWx/BL8lXEysQEOzwMTs0lxcmrxG55cExdCYTNo4k9V+n9rfvHX4VAFgIJmGKb3k0Ric2ba9JBpPZdb8RAq2dG68uVHvjLZoB6hDgNVbi6bKKwRY+5+ZTtTjFI2HaMHF+QDtzstcMOptx3/NziLXqIJt7KA73QhjwqDQL3+y9Hh/Z5jEXp6DBg==",
+      "tags": [
+        "gothenburg",
+        "boras"
+      ],
+      "date": "måndag 3 Nov, 09:23",
+      "username": "Snodden"
+    },
+    {
+      "id": "f53D5rMtH",
+      "text": "U2FsdGVkX19s/ZxduUqiRi+7Wq8w3avQ8KHmjLbquz/75pqaYQcOJC0lNUZQgozsP28DM2rjaB23f34JmUY2DiUM6u3huje6beenl7qJuHuKn8QP4g1S2+XtCo7y1H2A9uK4yZ+yz+j4aT59RXxmr4ZsHVsgPS6Gx+5wq/HY1q97AxtA/i7ZdwGiO8hZqbLeLbuFl8ZtVTXTQBXGt7WQNg==",
+      "tags": [
+        "oslo"
+      ],
+      "date": "måndag 3 Nov, 12:21",
+      "username": "Fagotten"
+    },
+    {
+      "id": "2A0EEYtNt",
+      "text": "U2FsdGVkX1+u5lorA78tU4g+CXRRR5QLPJRhlRlGnBkYQiu+j1ib79WGKlwtFXprSFNbACxIeYjLpZJVranIoHyJxVTpO+5UgZFPci9y1YE6eIje6gFhXTh3PbCfrmEDub7zfC+TdbxVHdKgn0LDUaCgla9Sa7hXAcOeJFBp+Ts=",
+      "tags": [
+        "stockholm"
+      ],
+      "date": "tisdag 3 Nov, 15:31",
+      "username": "Toffeln"
+    },
+    {
+      "id": "7w0deYtNy",
+      "text": "U2FsdGVkX1+iDufpijftf621lSqCORTdIRh+pVHrcKCKIPzT4xUm0wVi2eT1C0kaTv9rN42kUVGmNRBGo0z9Yg==",
+      "tags": [
+        "gothenburg"
+      ],
+      "date": "tisdag 3 Nov, 16:19",
+      "username": "Toffeln"
+    }
+  ]
+}
