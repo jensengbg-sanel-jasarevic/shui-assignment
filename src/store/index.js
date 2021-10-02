@@ -71,7 +71,7 @@ export default new Vuex.Store({
       });
       console.log(resp) 
 
-      // Create new array with results of decrypting content on original array
+      // Create new array with decrypted content
       const flow = resp.data.map((message) => {
         return {
           date: message.date,
@@ -142,3 +142,11 @@ export default new Vuex.Store({
   modules: {
   }
 })
+/* 
+Symmetric-key algorithm (e.g. AES) can be used for the encryption of plaintext and the decryption of ciphertext.
+Client & server can share same keys. Key should not be openly distributed from server to client or other way around. It has to be kept secret from unauthorized parties.
+Keep secret keys for encoding and decoding data in '.env' file.
+Environment variables in Vue should look like this:
+VUE_APP_MY_ENV_VARIABLE=value
+VUE_APP_ANOTHER_VARIABLE=value
+*/
