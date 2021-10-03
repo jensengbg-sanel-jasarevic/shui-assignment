@@ -63,7 +63,6 @@ export default new Vuex.Store({
     },    
 
     async getFlow(ctx){
-      console.log("d")
       let resp = await axios.get(`${ctx.state.API_URL}/api/flow`, {
         // Set headers authorization to get data from server
         headers: {
