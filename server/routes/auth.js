@@ -21,7 +21,7 @@ router.post('/login', async (req, res) => {
         if(valid){
             // Decrypt PUBLIC KEY with PRIVATE KEY
             const bytes = CryptoJS.AES.decrypt(user.userkey, process.env.PRIVATE_KEY);
-            const DECRYPTED_PUBLIC_KEY = bytes.toString(CryptoJS.enc.Utf8);
+            const DECRYPTED_USER_KEY = bytes.toString(CryptoJS.enc.Utf8);
 
             // Generate token that has the claim of user
             // Assign valid JWT (user UUID, sign with JWT KEY)
@@ -30,7 +30,7 @@ router.post('/login', async (req, res) => {
             // HTTP 200 OK, send JWT + decrypted PUBLIC KEY
             res.status(200).send({
                 token: token,
-                userkey: DECRYPTED_PUBLIC_KEY, // For decrypting database text messages on frontend
+                userkey: DECRYPTED_USER_KEY, // Key used to decrypt content from database on frontend
             });    
 
         } else {

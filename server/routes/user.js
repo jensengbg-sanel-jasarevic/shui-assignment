@@ -14,18 +14,18 @@ router.post('/', async (req, res) => {
         // Hashing password
         const HASHED_PASSWORD = await bcrypt.hashSync(req.body.password, salt)
 
-        // Assign PUBLIC KEY to new user 
-        const PUBLIC_KEY = process.env.PUBLIC_KEY;
+        // Assign USER KEY to new user (this key is used for decrypting content in frontend) 
+        const USER_KEY = process.env.USER_KEY;
         
-        // Encrypt PUBLIC KEY with PRIVATE KEY 
-        const ENCRYPTED_PUBLIC_KEY = CryptoJS.AES.encrypt(PUBLIC_KEY, process.env.PRIVATE_KEY).toString();
+        // Encrypt USER KEY with PRIVATE KEY 
+        const ENCRYPTED_USER_KEY = CryptoJS.AES.encrypt(USER_KEY, process.env.PRIVATE_KEY).toString();
 
         // User object for database
         let new_user = {
             uuid: shortid.generate(), // Generate user UUID
             username: req.body.username, 
             password: HASHED_PASSWORD, // Hashed password with bcrypt 
-            userkey: ENCRYPTED_PUBLIC_KEY, // Encrypted user PUBLIC KEY  
+            userkey: ENCRYPTED_USER_KEY, // Encrypted USER KEY  
         }
 
         // Add new user to database

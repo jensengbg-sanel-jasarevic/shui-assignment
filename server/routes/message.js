@@ -26,7 +26,7 @@ router.post('/', async (req, res) => {
         // User message object for database
         const user_msg = {
             id: shortid.generate(),
-            text: CryptoJS.AES.encrypt(req.body.content, process.env.PUBLIC_KEY).toString(), // Encrypt text with PUBLIC KEY
+            text: CryptoJS.AES.encrypt(req.body.content, process.env.USER_KEY).toString(), // Encrypt text with USER KEY
             tags: req.body.tag,
             date: `${weekday[date.getDay()]}` + `${months[date.getMonth()]}` + `${hour}:${minutes}`,
             username: user.username,
