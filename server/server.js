@@ -3,7 +3,6 @@ const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
 const PORT = process.env.PORT || 5000;
-// const path = require("path");
 
 const user = require('./routes/user');
 const auth = require('./routes/auth');
@@ -24,13 +23,6 @@ App.use('/api/flow', flow);
 App.use('/api/stream', stream);
 App.use('/api/subscription', subscription);
 App.use('/api/message', message);
-
-/*
-App.use(express.static(path.join(__dirname, "/dist")));
-App.get("/", (req, res) =>
-    res.sendFile(path.join(__dirname, "/dist", "index.html"))
-);
-*/
 
 App.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)

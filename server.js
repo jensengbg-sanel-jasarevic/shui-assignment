@@ -9,7 +9,9 @@ const app = express()
 // Here we are configuring dist to serve app files
 app.use('/', serveStatic(path.join(__dirname, '/dist')))
 
-// This * route is to serve project on different page routes except root `/`
+// Single page application, everything is stored on index.html
+// When trying to access different routes it will redirect do index.html 
+// index.html know how to handle the routes that is trying to be accessed
 app.get(/.*/, function (req, res) {
 	res.sendFile(path.join(__dirname, '/dist/index.html'))
 })
