@@ -1,4 +1,4 @@
-#### URL
+#### Web address URL
 https://shui-assignment.herokuapp.com/
 
 # Inlämningsuppgift: SHUI
