@@ -1,7 +1,8 @@
 #### Web address URL
 https://shui-assignment.herokuapp.com/
 
-# Individuell inlämningsuppgift: Säker webapplikation (Shui)
+# Inlämningsuppgift: Säker webapplikation
+# Projekt: Shui
 
 ## Bakgrundsbeskrivning, frågeställning, avgränsning och mål
 
