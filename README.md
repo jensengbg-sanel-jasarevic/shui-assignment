@@ -1,5 +1,5 @@
 #### URL
-https://shui-assignment.herokuapp.com
+https://shui-assignment.herokuapp.com/
 
 # Inlämningsuppgift: SHUI
 
